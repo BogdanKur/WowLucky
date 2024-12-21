@@ -35,5 +35,9 @@ class SupportFragment : Fragment() {
             val action = SupportFragmentDirections.actionSupportFragmentToChatFragment()
             navController.navigate(action)
         }
+        binding.imageView.setOnClickListener {
+            val action = SupportFragmentDirections.actionSupportFragmentToProfileFragment()
+            navController.navigate(action)
+        }
     }
 }
