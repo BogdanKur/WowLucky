@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.WowLucky1" parent="Base.Theme.WowLucky" >
+        <item name="android:fontFamily">@font/cormorant_regular</item>
+        <item name="colorSecondaryContainer">@color/green</item>
+    </style>
+
+    <style name="Theme.WowLucky" parent="Theme.MaterialComponents.Light.NoActionBar" >
+        <item name="android:fontFamily">@font/cormorant_regular</item>
+        <item name="colorSecondaryContainer">@color/green</item>
+    </style>
+
+    <style name="AppSearchViewStyle" parent="Theme.AppCompat.Light.NoActionBar"/>
+</resources>
