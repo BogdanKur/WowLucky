@@ -47,40 +47,43 @@ class GameFragment : Fragment() {
             navController.navigate(action)
         }
         binding.frame1.setOnClickListener {
-            select(binding.frame1, binding.frame2, binding.frame3, binding.frame4)
+            select(binding.frame1, binding.frame2, binding.frame3, binding.frame4, binding.frame5, binding.frame6, binding.frame7, binding.frame8)
         }
         binding.frame2.setOnClickListener {
-            select(binding.frame2, binding.frame1, binding.frame3, binding.frame4)
+            select(binding.frame2, binding.frame1, binding.frame3, binding.frame4, binding.frame5, binding.frame6, binding.frame7, binding.frame8)
         }
         binding.frame3.setOnClickListener {
-            select(binding.frame3, binding.frame2, binding.frame1, binding.frame4)
+            select(binding.frame3, binding.frame2, binding.frame1, binding.frame4, binding.frame5, binding.frame6, binding.frame7, binding.frame8)
         }
         binding.frame4.setOnClickListener {
-            select(binding.frame4, binding.frame2, binding.frame3, binding.frame1)
+            select(binding.frame4, binding.frame2, binding.frame3, binding.frame1, binding.frame5, binding.frame6, binding.frame7, binding.frame8)
+        }
+        binding.frame5.setOnClickListener {
+            select(binding.frame5, binding.frame2, binding.frame3, binding.frame4, binding.frame1, binding.frame6, binding.frame7, binding.frame8)
+        }
+        binding.frame6.setOnClickListener {
+            select(binding.frame6, binding.frame1, binding.frame3, binding.frame4, binding.frame5, binding.frame2, binding.frame7, binding.frame8)
+        }
+        binding.frame7.setOnClickListener {
+            select(binding.frame7, binding.frame2, binding.frame1, binding.frame4, binding.frame5, binding.frame6, binding.frame3, binding.frame8)
+        }
+        binding.frame8.setOnClickListener {
+            select(binding.frame8, binding.frame2, binding.frame3, binding.frame1, binding.frame5, binding.frame6, binding.frame7, binding.frame4)
         }
         binding.frame3.setOnClickListener {
-            binding.allViews.setRenderEffect(
-                RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
-            )
+            blurGun()
             showPopupOops()
         }
         binding.ivLive.setOnClickListener {
-            binding.frame1.setRenderEffect(
-                RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
-            )
-            binding.frame2.setRenderEffect(
-                RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
-            )
-            binding.frame3.setRenderEffect(
-                RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
-            )
-            binding.frame4.setRenderEffect(
-                RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
-            )
+            blurGun()
             binding.tvPlayer1.visibility = View.VISIBLE
             binding.tvPlayer2.visibility = View.VISIBLE
             binding.tvPlayer3.visibility = View.VISIBLE
             binding.tvPlayer4.visibility = View.VISIBLE
+            binding.tvPlayer5.visibility = View.VISIBLE
+            binding.tvPlayer6.visibility = View.VISIBLE
+            binding.tvPlayer7.visibility = View.VISIBLE
+            binding.tvPlayer8.visibility = View.VISIBLE
             //Handler(Looper.getMainLooper()).postDelayed({
         // showPopupWin()
             //}, 3000)
@@ -97,6 +100,34 @@ class GameFragment : Fragment() {
 //                showPopupLose()
 //            }, 3000)
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.S)
+    fun blurGun() {
+        binding.frame1.setRenderEffect(
+            RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
+        )
+        binding.frame2.setRenderEffect(
+            RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
+        )
+        binding.frame3.setRenderEffect(
+            RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
+        )
+        binding.frame4.setRenderEffect(
+            RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
+        )
+        binding.frame5.setRenderEffect(
+            RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
+        )
+        binding.frame6.setRenderEffect(
+            RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
+        )
+        binding.frame7.setRenderEffect(
+            RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
+        )
+        binding.frame8.setRenderEffect(
+            RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
+        )
     }
 
     private fun showPopupWin() {
@@ -127,24 +158,50 @@ class GameFragment : Fragment() {
         popupYouWin.visibility = View.GONE
     }
 
+    @RequiresApi(Build.VERSION_CODES.S)
     private fun showPopupOops() {
         val popupYouWin: FrameLayout = requireActivity().findViewById(R.id.frameLayoutOops)
         popupYouWin.visibility = View.VISIBLE
         val btn: ImageView = requireActivity().findViewById(R.id.btnClose)
-        btn.setOnClickListener { hidePopupOops() }
+        btn.setOnClickListener {
+            binding.frame1.setRenderEffect(null)
+            binding.frame2.setRenderEffect(null)
+            binding.frame3.setRenderEffect(null)
+            binding.frame4.setRenderEffect(null)
+            binding.frame5.setRenderEffect(null)
+            binding.frame6.setRenderEffect(null)
+            binding.frame7.setRenderEffect(null)
+            binding.frame8.setRenderEffect(null)
+            hidePopupOops()
+        }
         val btn1: MaterialButton = requireActivity().findViewById(R.id.btnOk1)
-        btn1.setOnClickListener { hidePopupOops() }
+        btn1.setOnClickListener {
+            binding.frame1.setRenderEffect(null)
+            binding.frame2.setRenderEffect(null)
+            binding.frame3.setRenderEffect(null)
+            binding.frame4.setRenderEffect(null)
+            binding.frame5.setRenderEffect(null)
+            binding.frame6.setRenderEffect(null)
+            binding.frame7.setRenderEffect(null)
+            binding.frame8.setRenderEffect(null)
+            hidePopupOops()
+        }
     }
 
     private fun hidePopupOops() {
+
         val popupYouWin: FrameLayout = requireActivity().findViewById(R.id.frameLayoutOops)
         popupYouWin.visibility = View.GONE
     }
 
-    fun select(frame1: FrameLayout, frame2: FrameLayout, frame3: FrameLayout, frame4: FrameLayout) {
+    fun select(frame1: FrameLayout, frame2: FrameLayout, frame3: FrameLayout, frame4: FrameLayout, frame5: FrameLayout, frame6: FrameLayout, frame7: FrameLayout, frame8: FrameLayout) {
         frame1.setBackgroundResource(R.drawable.select_game)
         frame2.setBackgroundResource(R.drawable.game)
         frame3.setBackgroundResource(R.drawable.game)
         frame4.setBackgroundResource(R.drawable.game)
+        frame5.setBackgroundResource(R.drawable.game)
+        frame6.setBackgroundResource(R.drawable.game)
+        frame7.setBackgroundResource(R.drawable.game)
+        frame8.setBackgroundResource(R.drawable.game)
     }
 }

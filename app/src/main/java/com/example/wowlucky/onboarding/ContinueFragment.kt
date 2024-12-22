@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.example.wowlucky.Continue
 import com.example.wowlucky.ContinueViewPagerAdapter
-import com.example.wowlucky.ContinueViewPagerAdapterClickItem
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentContinueBinding
 
-class ContinueFragment : Fragment(), ContinueViewPagerAdapterClickItem {
+class ContinueFragment : Fragment() {
     private var _binding: FragmentContinueBinding? = null
     private val binding get() = _binding!!
 
@@ -27,20 +27,30 @@ class ContinueFragment : Fragment(), ContinueViewPagerAdapterClickItem {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentContinueBinding.bind(view)
         val navController = findNavController()
-        val adapter = ContinueViewPagerAdapter(this)
+        binding.btnContinue.setOnClickListener {
+            val action = ContinueFragmentDirections.actionContinueFragmentToRegistrationInactiveFragment()
+            navController.navigate(action)
+        }
+        val adapter = ContinueViewPagerAdapter()
         binding.viewPager.adapter = adapter
-        val listOfPagers = listOf(Continue(R.drawable.frame_2085660594, R.drawable.avtomat5, "MONTHLY GAMES!", "Join us in monthly gaming events that will keep you on the edge of your seat! Compete with other gamers. "),
-            Continue(R.drawable.frame_2085660596, R.drawable.avtomat6, "TAKE & BALLS, GET 1 LIFE!", " Each time you successfully collect 8 artworks, you earn a life, unlocking new opportunities in the game. ")
+        val listOfPagers = listOf(Continue(R.drawable.frame_2085660594, R.drawable.avtomat5),
+            Continue(R.drawable.frame_2085660596, R.drawable.avtomat6)
         )
         adapter.submitList(listOfPagers)
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                when (position) {
+                    0 -> {
+                        binding.tvMonthlyGames.text = "MONTHLY GAMES!"
+                        binding.tvJoin.text = "Join us in monthly gaming events that will keep you on the edge of your seat! Compete with other gamers. "
+                    }
+                    1 -> {
+                        binding.tvMonthlyGames.text = "TAKE & BALLS, GET 1 LIFE!"
+                        binding.tvJoin.text = "Each time you successfully collect 8 artworks, you earn a life, unlocking new opportunities in the game. "
+                    }
+                }
+            }
+        })
     }
-
-    override fun onButtonClick() {
-        val action = ContinueFragmentDirections.actionContinueFragmentToRegistrationInactiveFragment()
-        findNavController().navigate(action)
-    }
-
-    override fun onSkipClick() {
-    }
-
 }

@@ -29,6 +29,7 @@ class CreateAccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentCreateAccountBinding.bind(view)
         val navController = findNavController()
+        binding.etPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
         binding.btnPassVisible.setOnClickListener {
             togglePasswordVisibility(binding.btnPassVisible, binding.etPassword)
         }
@@ -36,7 +37,7 @@ class CreateAccountFragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(!p0.toString().contains("@gmail.com")) {
+                if(!p0.toString().contains("@")) {
                     binding.etEmail.setBackgroundResource(R.drawable.red_input)
                     binding.tvError.visibility = View.VISIBLE
                 } else {
@@ -61,7 +62,7 @@ class CreateAccountFragment : Fragment() {
 
     private fun togglePasswordVisibility(button: ImageButton, etNewPassword: TextInputEditText) {
         if (etNewPassword.inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
-            etNewPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            etNewPassword.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
             button.setBackgroundResource(R.drawable.close_eye)
         } else {
             etNewPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD

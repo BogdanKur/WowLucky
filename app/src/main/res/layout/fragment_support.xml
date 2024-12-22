@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSupportMain"
-        android:padding="@dimen/_16dp"
+        android:padding="@dimen/_13dp"
         tools:ignore="MissingConstraints">
         <ImageView
             android:layout_gravity="top|center"
@@ -57,7 +57,7 @@
         <TextView
             android:layout_marginTop="@dimen/_45dp"
             android:layout_gravity="center"
-            android:textSize="@dimen/_14sp"
+            android:textSize="@dimen/_13sp"
             android:textColor="#646464"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/frameLayout1"
-        android:padding="@dimen/_16dp"
+        android:padding="@dimen/_13dp"
         tools:ignore="MissingConstraints">
         <ImageView
             android:layout_gravity="top|center"
@@ -91,7 +91,7 @@
             android:layout_marginTop="@dimen/_45dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textSize="@dimen/_14sp"
+            android:textSize="@dimen/_13sp"
             android:textColor="#646464"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

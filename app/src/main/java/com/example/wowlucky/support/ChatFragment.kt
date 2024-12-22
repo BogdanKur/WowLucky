@@ -1,5 +1,6 @@
 package com.example.wowlucky.support
 
+import android.graphics.Rect
 import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Build
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.view.marginBottom
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentChatBinding
@@ -59,6 +61,23 @@ class ChatFragment : Fragment() {
             binding.rvChats.setRenderEffect(null)
             binding.llNoMessage.setRenderEffect(null)
             binding.linearLayoutSelect.visibility = View.GONE
+        }
+        val rootView = requireActivity().window.decorView.findViewById<View>(android.R.id.content)
+        rootView.viewTreeObserver.addOnGlobalLayoutListener {
+            val rect = Rect()
+            rootView.getWindowVisibleDisplayFrame(rect)
+            val screenHeight = rootView.height
+            val keypadHeight = screenHeight - rect.bottom
+
+            if (keypadHeight > 200) {
+                val params = binding.linearLayout2.layoutParams as ViewGroup.MarginLayoutParams
+                params.bottomMargin = keypadHeight-10
+                binding.linearLayout2.layoutParams = params
+            } else {
+                val params = binding.linearLayout2.layoutParams as ViewGroup.MarginLayoutParams
+                params.bottomMargin = 0
+                binding.linearLayout2.layoutParams = params
+            }
         }
     }
 }

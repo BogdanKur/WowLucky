@@ -153,6 +153,7 @@
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints">
             <com.google.android.material.textfield.TextInputEditText
+                android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input"

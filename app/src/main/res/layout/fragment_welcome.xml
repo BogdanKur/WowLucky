@@ -18,6 +18,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="@dimen/_126dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gun"
+        app:layout_constraintBottom_toBottomOf="@+id/ivLoot"
+        app:layout_constraintEnd_toEndOf="@+id/ivLoot"
+        app:layout_constraintStart_toStartOf="@+id/ivLoot"
+        app:layout_constraintTop_toTopOf="@id/ivLoot" />
 
     <TextView
         android:id="@+id/tvWelcome"

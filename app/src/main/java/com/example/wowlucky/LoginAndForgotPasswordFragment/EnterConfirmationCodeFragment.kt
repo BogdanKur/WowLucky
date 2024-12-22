@@ -34,6 +34,8 @@ class EnterConfirmationCodeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentEnterConfimationCodeBinding.bind(view)
         val navController = findNavController()
+        binding.etEnterPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+        binding.etRepeatPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
         binding.btnPassEnterVisible.setOnClickListener {
             togglePasswordVisibility(binding.btnPassEnterVisible, binding.etEnterPassword)
         }

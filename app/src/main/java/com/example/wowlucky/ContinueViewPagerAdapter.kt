@@ -10,26 +10,17 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.wowlucky.databinding.ViewPagerBinding
 
-class ContinueViewPagerAdapter(private val listener: ContinueViewPagerAdapterClickItem) : ListAdapter<Continue, ContinueViewPagerAdapter.ContinueViewPagerViewHolder>(ViewPagerDiffCallback()) {
+class ContinueViewPagerAdapter : ListAdapter<Continue, ContinueViewPagerAdapter.ContinueViewPagerViewHolder>(ViewPagerDiffCallback()) {
     class ContinueViewPagerViewHolder(private val binding: ViewPagerBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Continue, listener: ContinueViewPagerAdapterClickItem) {
+        fun bind(item: Continue) {
             binding.ivFirst1.setImageResource(item.imageResId1)
             binding.ivSecond1.setImageResource(item.imageResId2)
-            binding.tvMonthlyGames.text = item.text1
-            binding.tvJoin.text = item.text2
             if (position == 0) {
                 binding.ivSecond.setImageResource(R.drawable.frame_2085660591)
             } else {
                 binding.ivSecond.setImageResource(R.drawable.second_view_pager)
-            }
-            binding.btnContinue.setOnClickListener {
-                listener.onButtonClick()
-            }
-
-            binding.btnSkip.setOnClickListener {
-                listener.onSkipClick()
             }
         }
     }
@@ -42,7 +33,7 @@ class ContinueViewPagerAdapter(private val listener: ContinueViewPagerAdapterCli
 
     override fun onBindViewHolder(holder: ContinueViewPagerViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item, listener)
+        holder.bind(item)
     }
 
     class ViewPagerDiffCallback : DiffUtil.ItemCallback<Continue>() {
@@ -58,12 +49,5 @@ class ContinueViewPagerAdapter(private val listener: ContinueViewPagerAdapterCli
 
 data class Continue(
     val imageResId1: Int,
-    val imageResId2: Int,
-    val text1: String,
-    val text2: String
+    val imageResId2: Int
 )
-
-interface ContinueViewPagerAdapterClickItem {
-    fun onButtonClick()
-    fun onSkipClick()
-}

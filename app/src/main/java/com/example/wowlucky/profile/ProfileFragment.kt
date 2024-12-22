@@ -38,47 +38,47 @@ class ProfileFragment : Fragment() {
                 binding.scrollViewRoot.setRenderEffect(null)
             }
         }
-        binding.btnReferral.setOnClickListener {
+        binding.referral.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToReferralFragment()
             navController.navigate(action)
         }
-        binding.btnNotifications.setOnClickListener {
+        binding.notifications.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToNotificationSettingsFragment()
             navController.navigate(action)
         }
-        binding.btnGaming.setOnClickListener {
+        binding.gaming.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToGamingFragment()
             navController.navigate(action)
         }
-        binding.btnMedia.setOnClickListener {
+        binding.media.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToMediaFragment()
             navController.navigate(action)
         }
-        binding.btnWithdrawals.setOnClickListener {
+        binding.withdrawals.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToWithdrawalsFragment()
             navController.navigate(action)
         }
-        binding.btnGame.setOnClickListener {
+        binding.game.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToGameFragment()
             navController.navigate(action)
         }
-        binding.btnNews.setOnClickListener {
+        binding.news.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToGameFragment()
             navController.navigate(action)
         }
-        binding.btnSupport.setOnClickListener {
+        binding.support.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToSupportFragment()
             navController.navigate(action)
         }
-        binding.btnFaq.setOnClickListener {
+        binding.faq.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToFaqFragment()
             navController.navigate(action)
         }
-        binding.btnEarning.setOnClickListener {
+        binding.earnings.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToMyProfileFragment()
             navController.navigate(action)
         }
-        binding.btnLanguage.setOnClickListener {
+        binding.language.setOnClickListener {
             if (isImageBackgroundChanged) {
                 binding.tvRu.visibility = View.GONE
                 binding.tvEs.visibility = View.GONE

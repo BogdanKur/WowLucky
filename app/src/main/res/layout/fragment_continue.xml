@@ -7,12 +7,71 @@
     android:padding="@dimen/_16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".onboarding.ContinueFragment">
+    tools:context=".onboarding.ContinueFragment"
+    tools:ignore="MissingConstraints">
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSkip"
+        android:textSize="@dimen/_16sp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="@string/skip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="@dimen/_328dp"
+        android:layout_height="@dimen/_396dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSkip" />
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/tvMonthlyGames"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15dp"
+        android:text="@string/monthly_games"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_29sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/viewPager"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tvJoin"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15dp"
+        android:text="@string/join_us_in_monthly_gaming_events_that_will_keep_you_on_the_edge_of_your_seat_compete_with_other_gamers"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMonthlyGames"
+        tools:ignore="MissingConstraints" />
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_marginBottom="@dimen/_25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_purple_drawable_30dp_radius"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48dp"
+            android:background="@android:color/transparent"
+            android:text="@string/continues"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sp"/>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

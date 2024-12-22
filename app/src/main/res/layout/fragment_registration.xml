@@ -58,7 +58,7 @@
                 android:background="@android:color/transparent"
                 android:text="@string/sign_up_with_email"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_20sp"/>
+                android:textSize="@dimen/_18sp"/>
         </FrameLayout>
         <FrameLayout
             android:id="@+id/frameLayout2"
@@ -80,7 +80,7 @@
                 android:background="@android:color/transparent"
                 android:text="@string/sign_up_with_google"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_20sp"/>
+                android:textSize="@dimen/_18sp"/>
         </FrameLayout>
         <LinearLayout
             android:orientation="horizontal"
