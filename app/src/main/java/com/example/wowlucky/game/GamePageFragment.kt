@@ -109,7 +109,8 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
         val interval = totalDuration / 89
         val drawableList = listOf(
             ContextCompat.getDrawable(requireContext(), R.drawable.progress_element_1)!!,
-            ContextCompat.getDrawable(requireContext(), R.drawable.progress_element_2)!!
+            ContextCompat.getDrawable(requireContext(), R.drawable.progress_element_2)!!,
+            ContextCompat.getDrawable(requireContext(), R.drawable.progress_element_3)!!
         )
 
         val timer = object : CountDownTimer(totalDuration, interval) {
@@ -131,15 +132,20 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
             override fun onFinish() {
                 when(remaining) {
                     1 -> {
-                        binding.ivCenter.setBackgroundResource(R.drawable.center_all)
+                        binding.ivCenter.setBackgroundResource(R.drawable.center_all1)
                     }
                     2 -> {
-                        binding.ivCenter.setBackgroundResource(R.drawable.center_icon1)
+                        binding.ivCenter.setBackgroundResource(R.drawable.center_icon11)
                     }
                     3 -> {
-                        binding.ivCenter.setBackgroundResource(R.drawable.center_vnesh)
+                        binding.ivCenter.setBackgroundResource(R.drawable.center_vnesh1)
                     }
                 }
+                binding.circularProgressBar.elementToUpdateIndex = 0
+                for (i in 0 until binding.circularProgressBar.totalElements+1) {
+                    binding.circularProgressBar.updateDrawableAtIndex(i, drawableList[2])
+                }
+                binding.circularProgressBar.elementToUpdateIndex = 0
                 remaining--
                 binding.circularProgressBar.setOuterProgress(100f)
             }

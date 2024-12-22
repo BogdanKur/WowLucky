@@ -26,15 +26,14 @@
             android:layout_width="@dimen/_250dp"
             android:layout_height="@dimen/_300dp"
             android:src="@drawable/avtomat5"/>
+        <ImageView
+            android:id="@+id/ivSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/_40dp"
+            android:src="@drawable/frame_2085660591"
+            tools:ignore="MissingConstraints" />
     </FrameLayout>
-    <ImageView
-        android:id="@+id/ivSecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivFirst"
-        android:src="@drawable/frame_2085660591"
-        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
