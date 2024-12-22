@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Фон прогресс-бара -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="#E0E0E0" /> <!-- Серый фон -->
+        </shape>
+    </item>
+
+    <!-- Прогресс с элементами -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <layer-list>
+                <!-- Используем элементы 1 и 2, чередуя их -->
+                <item>
+                    <bitmap
+                        android:src="@drawable/progress_element_1"
+                        android:tileMode="repeat"
+                        android:gravity="left" />
+                </item>
+                <item>
+                    <bitmap
+                        android:src="@drawable/progress_element_2"
+                        android:tileMode="repeat"
+                        android:gravity="right" />
+                </item>
+            </layer-list>
+        </clip>
+    </item>
+
+</layer-list>

@@ -28,7 +28,7 @@ class SupportFragment : Fragment() {
         val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.visibility = View.VISIBLE
         binding.frameLayout1.setOnClickListener {
-            val action = SupportFragmentDirections.actionSupportFragmentToFaqFragment()
+            val action = SupportFragmentDirections.actionSupportFragmentToFaqFragment("support")
             navController.navigate(action)
         }
         binding.frameLayout2.setOnClickListener {

@@ -240,7 +240,16 @@
                 android:text="@string/_24_players_choose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#88FFC6"
+                android:src="@drawable/question"
+                android:layout_marginBottom="@dimen/_45dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/frame3"
+                tools:ignore="MissingConstraints" />
             <FrameLayout
                 android:id="@+id/frame3"
                 android:layout_width="@dimen/_180dp"

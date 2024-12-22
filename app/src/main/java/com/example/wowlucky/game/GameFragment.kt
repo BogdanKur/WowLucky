@@ -38,6 +38,10 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentGameBinding.bind(view)
         val navController = findNavController()
+        binding.floatButton.setOnClickListener {
+            val action = GameFragmentDirections.actionGameFragmentToFaqFragment()
+            navController.navigate(action)
+        }
         binding.imageView.setOnClickListener {
             val action = GameFragmentDirections.actionGameFragmentToGamePageFragment()
             navController.navigate(action)

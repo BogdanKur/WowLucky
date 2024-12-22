@@ -312,8 +312,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/only_mobile_traffic_is_counted_vpns_and_emulators_are_prohibited_earnings_will_not_be_credited_and_these_actions_will_lead_to_account_suspension"/>
-        <View
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#88FFC6"
+            android:src="@drawable/question"
+            android:layout_marginTop="@dimen/_35dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvLast"
+            tools:ignore="MissingConstraints" />
+        <View
+            app:layout_constraintTop_toBottomOf="@id/floatButton"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

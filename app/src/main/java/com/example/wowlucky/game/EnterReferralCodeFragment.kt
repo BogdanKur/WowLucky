@@ -28,5 +28,9 @@ class EnterReferralCodeFragment : Fragment() {
             val action = EnterReferralCodeFragmentDirections.actionEnterReferralCodeFragmentToReferralCodeFragment()
             navController.navigate(action)
         }
+        binding.floatButton.setOnClickListener {
+            val action = EnterReferralCodeFragmentDirections.actionEnterReferralCodeFragmentToFaqFragment()
+            navController.navigate(action)
+        }
     }
 }

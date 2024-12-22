@@ -37,5 +37,9 @@ class MyProfileFragment : Fragment() {
             }
             isProfile = !isProfile
         }
+        binding.floatButton.setOnClickListener {
+            val action = MyProfileFragmentDirections.actionMyProfileFragmentToFaqFragment()
+            navController.navigate(action)
+        }
     }
 }

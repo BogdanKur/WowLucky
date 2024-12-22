@@ -24,7 +24,7 @@ class FaqFragment : Fragment() {
     var isOpen4 = false
     var isOpen5 = false
     var isOpen6 = false
-
+    var lastPos = "null"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,9 +38,17 @@ class FaqFragment : Fragment() {
         val navController = findNavController()
         val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.visibility = View.GONE
+        arguments?.let { bundle->
+            lastPos = bundle.getString("support").toString()
+        }
         binding.imageView.setOnClickListener {
-            val action = FaqFragmentDirections.actionFaqFragmentToSupportFragment()
-            navController.navigate(action)
+            if(lastPos == "support") {
+                val action = FaqFragmentDirections.actionFaqFragmentToSupportFragment()
+                navController.navigate(action)
+            } else {
+                val action = FaqFragmentDirections.actionFaqFragmentToGamePageFragment()
+                navController.navigate(action)
+            }
         }
         binding.openQuestionOne.setOnClickListener {
             isOpen1 = openQuestionAnswer(binding.openQuestionOne, binding.questionAnswer1, isOpen1, binding.clQuestionOne)

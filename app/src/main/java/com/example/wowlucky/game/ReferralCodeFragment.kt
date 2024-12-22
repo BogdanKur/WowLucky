@@ -28,6 +28,10 @@ class ReferralCodeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentReferralCodeBinding.bind(view)
         val navController = findNavController()
+        binding.floatButton.setOnClickListener{
+            val action = ReferralCodeFragmentDirections.actionReferralCodeFragmentToFaqFragment()
+            navController.navigate(action)
+        }
         binding.ivBlogger.setOnClickListener {
             toggleTextViewVisibility(binding.ivBlogger, binding.tvOpinion)
         }
