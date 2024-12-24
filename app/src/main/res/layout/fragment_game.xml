@@ -12,17 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".game.GameFragment">
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_gravity="bottom"
-            android:id="@+id/floatButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#88FFC6"
-            android:src="@drawable/question"
-            android:layout_marginBottom="@dimen/_45dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="MissingConstraints" />
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"

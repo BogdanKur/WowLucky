@@ -46,10 +46,7 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentGamePageBinding.bind(view)
         val navController = findNavController()
-        binding.floatButton.setOnClickListener{
-            val action = GamePageFragmentDirections.actionGamePageFragmentToFaqFragment()
-            navController.navigate(action)
-        }
+
         binding.ivCenter.setOnClickListener { view ->
             val scaleUpX = ObjectAnimator.ofFloat(view, View.SCALE_X, 1f, 1.1f)
             val scaleUpY = ObjectAnimator.ofFloat(view, View.SCALE_Y, 1f, 1.1f)

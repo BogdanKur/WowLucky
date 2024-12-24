@@ -26,7 +26,7 @@
                 android:layout_gravity="bottom"
                 android:id="@+id/bottomNavigationView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_90dp"
                 app:menu="@menu/menu_bottom_navigation"
                 app:labelVisibilityMode="unlabeled"
                 app:itemIconTint="@drawable/bottom_nav_icon_selector"

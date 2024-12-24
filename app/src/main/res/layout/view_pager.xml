@@ -11,13 +11,13 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/ivFirst"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_340dp"
         tools:ignore="MissingConstraints">
         <ImageView
             android:id="@+id/ivFirst1"
             android:layout_marginTop="@dimen/_30dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_356dp"
             android:src="@drawable/frame_2085660594"
             tools:ignore="MissingConstraints" />
         <ImageView
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:layout_marginBottom="@dimen/_40dp"
+            android:layout_marginBottom="@dimen/_30dp"
             android:src="@drawable/frame_2085660591"
             tools:ignore="MissingConstraints" />
     </FrameLayout>
