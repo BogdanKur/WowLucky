@@ -37,6 +37,222 @@
         android:visibility="gone"
         android:layout_marginHorizontal="@dimen/_15dp"
         android:layout_gravity="center"
+        android:id="@+id/popupChoose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10dp"
+        android:background="@drawable/frame_2085660249">
+        <ImageView
+            android:id="@+id/imageView92"
+            android:layout_width="@dimen/_24dp"
+            android:layout_height="@dimen/_24dp"
+            android:src="@drawable/x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv91"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_n_21_round_1"
+            android:textColor="#F8FAFF"
+            android:textSize="@dimen/_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_marginTop="@dimen/_10dp"
+            android:id="@+id/tv92"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/you_choose_this_picture"
+            android:textColor="#F8FAFF"
+            android:textSize="@dimen/_24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv91"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_marginTop="@dimen/_10dp"
+        android:id="@+id/tv992"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="WAIT UNTIL THE END OF THE ROUND"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv92"
+        tools:ignore="MissingConstraints" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="@dimen/_10dp"
+            android:id="@+id/clLive"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv992"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/frame_65"
+            android:paddingVertical="@dimen/_6dp"
+            android:paddingHorizontal="@dimen/_12dp"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/ivLive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/live"/>
+            <TextView
+                android:layout_marginStart="@dimen/_4dp"
+                android:textSize="@dimen/_14sp"
+                android:textColor="#F8FAFF"
+                app:layout_constraintStart_toEndOf="@id/ivLive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01h : 03m : 12s"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clStarHeart92"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clLive"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/_5dp"
+                android:id="@+id/ivStar92"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star"/>
+            <TextView
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/_3dp"
+                android:id="@+id/tvStar92"
+                android:layout_marginStart="@dimen/_4dp"
+                app:layout_constraintStart_toEndOf="@id/ivStar92"
+                android:text="4/8 balls"
+                android:textSize="@dimen/_14sp"
+                android:textColor="#F8FAFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/_5dp"
+                android:layout_marginStart="@dimen/_10dp"
+                app:layout_constraintStart_toEndOf="@id/tvStar92"
+                android:id="@+id/ivHeart92"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/heart"/>
+            <TextView
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/_3dp"
+                android:textSize="@dimen/_14sp"
+                android:id="@+id/tvHeart92"
+                android:layout_marginStart="@dimen/_4dp"
+                app:layout_constraintStart_toEndOf="@id/ivHeart92"
+                android:text="4 lifes"
+                android:textColor="#F8FAFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/_3dp"
+                android:textSize="@dimen/_14sp"
+                android:id="@+id/tvCount92"
+                android:layout_marginStart="@dimen/_54dp"
+                app:layout_constraintStart_toEndOf="@id/tvHeart92"
+                android:text="126"
+                android:textColor="#88FFC6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/_3dp"
+                android:textSize="@dimen/_14sp"
+                android:id="@+id/tvPlayers19"
+                android:layout_marginStart="@dimen/_4dp"
+                app:layout_constraintStart_toEndOf="@id/tvCount92"
+                android:text="@string/players"
+                android:textColor="#F8FAFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout92"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clStarHeart92"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/choose_gun_bg1" />
+        </FrameLayout>
+        <FrameLayout
+            app:layout_constraintTop_toBottomOf="@id/frameLayout92"
+            android:id="@+id/frameLayout91"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/continue_bg_false"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNextRound92"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="@string/continues"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_20sp"/>
+        </FrameLayout>
+        <FrameLayout
+            app:layout_constraintTop_toBottomOf="@id/frameLayout91"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/frameLayout29"
+            android:layout_marginBottom="@dimen/_15dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50dp"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_black_30dp_radius_background"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGetStarted92"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:textColor="#F8FAFF"
+                android:textSize="@dimen/_16sp"
+                android:text="@string/group_discussions"/>
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:visibility="gone"
+        android:layout_marginHorizontal="@dimen/_15dp"
+        android:layout_gravity="center"
         android:id="@+id/popupYouWin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

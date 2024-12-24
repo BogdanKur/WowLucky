@@ -3,7 +3,7 @@
     android:layout_marginBottom="@dimen/_10dp"
     android:layout_marginTop="@dimen/_10dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="start"
     android:background="@android:color/transparent"
@@ -17,9 +17,9 @@
     <LinearLayout
         android:paddingHorizontal="@dimen/_16dp"
         android:paddingBottom="@dimen/_4dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bot_message"
+        android:background="@drawable/bot_message_bg"
         android:orientation="vertical">
         <TextView
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sed at ullamcorper accumsan, pretium nascetur. Quis amet at aliquam id habitant ac. Facilisis arcu tellus nec iaculis ultricies nisl nec, feugiat volutpat. Cursus condimentum tincidunt porttitor pharetra eu sed phasellus. Eget semper sit enim integer. Non sapien sed accumsan massa amet potenti in massa enim. Nunc egestas in diam urna. Sed nisi erat a dui urna, suspendisse quis consectetur. Et nullam tincidunt urna sed quam."
