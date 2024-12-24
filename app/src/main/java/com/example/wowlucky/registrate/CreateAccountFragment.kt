@@ -33,21 +33,27 @@ class CreateAccountFragment : Fragment() {
         binding.btnPassVisible.setOnClickListener {
             togglePasswordVisibility(binding.btnPassVisible, binding.etPassword)
         }
-        binding.etEmail.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(!p0.toString().contains("@")) {
+        binding.etEmail.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val email = s.toString()
+                if (!isValidEmail(email)) {
                     binding.etEmail.setBackgroundResource(R.drawable.red_input)
                     binding.tvError.visibility = View.VISIBLE
                 } else {
                     binding.etEmail.setBackgroundResource(R.drawable.input)
                     binding.ivContinue.setBackgroundDrawable(resources.getDrawable(R.drawable.btn_gradient_30dp_radius))
-                    binding.btnContinue.isClickable = true
+                    binding.btnContinue.isEnabled = true
                     binding.tvError.visibility = View.GONE
                 }
             }
-            override fun afterTextChanged(p0: Editable?) {
+
+            override fun afterTextChanged(s: Editable?) {}
+
+            private fun isValidEmail(email: String): Boolean {
+                val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+                return email.matches(Regex(emailPattern))
             }
         })
         binding.btnContinue.setOnClickListener {

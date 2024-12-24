@@ -26,11 +26,13 @@ class ResetPasswordFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentResetPasswordBinding.bind(view)
         val navController = findNavController()
-        binding.etEmail.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(!p0.toString().contains("@")) {
+
+        binding.etEmail.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val email = s.toString()
+                if (!isValidEmail(email)) {
                     binding.etEmail.setBackgroundResource(R.drawable.red_input)
                 } else {
                     binding.etEmail.setBackgroundResource(R.drawable.input)
@@ -38,7 +40,12 @@ class ResetPasswordFragment : Fragment() {
                     binding.btnContinue.isEnabled = true
                 }
             }
-            override fun afterTextChanged(p0: Editable?) {
+
+            override fun afterTextChanged(s: Editable?) {}
+
+            private fun isValidEmail(email: String): Boolean {
+                val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+                return email.matches(Regex(emailPattern))
             }
         })
         binding.btnContinue.setOnClickListener {
