@@ -40,6 +40,7 @@ class FiltrationWithdrawalFragment : BottomSheetDialogFragment() {
         binding.btnChooseDate.setOnClickListener {
             if (isImageBackgroundChanged) {
                 binding.imageView11.setBackgroundResource(R.drawable.choose_date)
+                binding.btnChooseDate.setTextColor(R.color.white)
                 binding.btnChooseDate.text = "Choose date"
             } else {
                 binding.imageView11.setBackgroundResource(R.drawable.choose_date_bg1)
@@ -51,6 +52,7 @@ class FiltrationWithdrawalFragment : BottomSheetDialogFragment() {
         binding.btnWin.setOnClickListener {
             if (isImageBackgroundChangedWin) {
                 binding.imageView12.setBackgroundResource(R.drawable.component_23)
+                binding.btnChooseDate.setTextColor(R.color.white)
             } else {
                 binding.imageView12.setBackgroundResource(R.drawable.choose_win_lose)
                 binding.btnWin.setTextColor(R.color.black)
