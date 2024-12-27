@@ -58,7 +58,7 @@ class GameFragment : Fragment(), GameItemClick {
                 applyBlur(requireContext(), binding.allViewss)
                 val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
                 applyBlur(requireContext(), bottomNav)
-                showPopupWin()
+                showPopupLose()
             }, 100)
         }
     }

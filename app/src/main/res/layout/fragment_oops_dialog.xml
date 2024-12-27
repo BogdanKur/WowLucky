@@ -8,6 +8,7 @@
     android:background="@color/black">
 
     <FrameLayout
+        android:layout_marginHorizontal="@dimen/_15dp"
         android:id="@+id/frameLayoutOops"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +33,7 @@
             android:layout_marginTop="@dimen/_40dp"
             android:text="@string/the_game_has_already_started"
             android:textColor="#F8FAFF"
-            android:textSize="@dimen/_19sp" />
+            android:textSize="@dimen/_24sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +42,7 @@
             android:layout_marginTop="@dimen/_70dp"
             android:text="@string/you_didn_t_have_time_come_back_after_the_end"
             android:textColor="#F8FAFF"
-            android:textSize="@dimen/_11sp" />
+            android:textSize="@dimen/_14sp" />
 
         <ImageView
             android:id="@+id/btnClose"
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|end"
             android:layout_marginTop="@dimen/_15dp"
-            android:layout_marginEnd="@dimen/_5dp"
+            android:layout_marginEnd="@dimen/_15dp"
             android:background="@drawable/x" />
 
         <FrameLayout

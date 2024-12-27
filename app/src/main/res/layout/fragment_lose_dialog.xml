@@ -8,6 +8,7 @@
     android:background="@color/black">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginHorizontal="@dimen/_15dp"
         android:id="@+id/popupYouLose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

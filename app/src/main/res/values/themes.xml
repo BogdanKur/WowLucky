@@ -10,4 +10,9 @@
     </style>
 
     <style name="AppSearchViewStyle" parent="Theme.AppCompat.Light.NoActionBar"/>
+    <style name="FullWidthDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>
