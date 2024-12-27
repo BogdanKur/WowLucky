@@ -12,8 +12,11 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.view.marginBottom
 import androidx.navigation.fragment.findNavController
+import com.example.wowlucky.BlurUtils.applyBlur
+import com.example.wowlucky.BlurUtils.removeBlur
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentChatBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ChatFragment : Fragment() {
@@ -26,7 +29,6 @@ class ChatFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_chat, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.S)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentChatBinding.bind(view)
@@ -48,36 +50,31 @@ class ChatFragment : Fragment() {
             navController.navigate(action)
         }
         binding.btnPlus.setOnClickListener {
-            binding.rvChats.setRenderEffect(RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP))
-            binding.llNoMessage.setRenderEffect(RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP))
+            applyBlur(requireContext(), binding.rvChats)
+            applyBlur(requireContext(), binding.llNoMessage)
             binding.linearLayoutSelect.visibility = View.VISIBLE
         }
         binding.llImage.setOnClickListener {
-            binding.rvChats.setRenderEffect(null)
-            binding.llNoMessage.setRenderEffect(null)
+            removeBlur(binding.rvChats)
+            removeBlur(binding.llNoMessage)
             binding.linearLayoutSelect.visibility = View.GONE
         }
         binding.llFile.setOnClickListener {
-            binding.rvChats.setRenderEffect(null)
-            binding.llNoMessage.setRenderEffect(null)
+            removeBlur(binding.rvChats)
+            removeBlur(binding.llNoMessage)
             binding.linearLayoutSelect.visibility = View.GONE
         }
         val rootView = requireActivity().window.decorView.findViewById<View>(android.R.id.content)
-        rootView.viewTreeObserver.addOnGlobalLayoutListener {
-            val rect = Rect()
-            rootView.getWindowVisibleDisplayFrame(rect)
-            val screenHeight = rootView.height
-            val keypadHeight = screenHeight - rect.bottom
-
+        rootView.doOnApplyWindowInsets { view, insets, _ ->
+            val keypadHeight = insets.systemWindowInsetBottom
+            val params = binding.linearLayout2.layoutParams as ViewGroup.MarginLayoutParams
             if (keypadHeight > 200) {
-                val params = binding.linearLayout2.layoutParams as ViewGroup.MarginLayoutParams
-                params.bottomMargin = keypadHeight-10
-                binding.linearLayout2.layoutParams = params
+                params.bottomMargin = keypadHeight - 30
             } else {
-                val params = binding.linearLayout2.layoutParams as ViewGroup.MarginLayoutParams
                 params.bottomMargin = 0
-                binding.linearLayout2.layoutParams = params
             }
+            binding.linearLayout2.layoutParams = params
+            insets
         }
     }
 }

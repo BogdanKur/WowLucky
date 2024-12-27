@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
+import com.example.wowlucky.BlurUtils.applyBlur
+import com.example.wowlucky.BlurUtils.removeBlur
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentGamingTransactionsBinding
 import com.example.wowlucky.profile.FiltrationWithdrawalFragment
@@ -28,6 +30,7 @@ class GamingTransactionsFragment : Fragment(), TransactionInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentGamingTransactionsBinding.bind(view)
+        removeBlur(binding.root)
         val navController = findNavController()
         val adapter = GamingTransactionsAdapter(this)
         binding.rvTransaction.adapter = adapter
@@ -42,16 +45,10 @@ class GamingTransactionsFragment : Fragment(), TransactionInterface {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.S)
     override fun onButtonClick() {
-        binding.rootLayout.setRenderEffect(
-            RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
-        )
-        val bottomSheet = FiltrationWithdrawalFragment()
-        fragmentManager?.let { it1 -> bottomSheet.show(it1, "FiltrationWithdrawalFragment") }
-        bottomSheet.dialog?.setOnDismissListener {
-            binding.rootLayout.setRenderEffect(null)
-        }
+        applyBlur(requireContext(), binding.rootLayout)
+        val action = GamingTransactionsFragmentDirections.actionGameTransactionsFragmentToFiltrationFragment()
+        findNavController().navigate(action)
     }
 
 }

@@ -13,7 +13,6 @@ import com.example.wowlucky.databinding.FragmentSplashScreenBinding
 
 class SplashScreenFragment : Fragment() {
     private var _binding: FragmentSplashScreenBinding? = null
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

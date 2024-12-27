@@ -160,14 +160,14 @@
                 android:background="@drawable/center_icon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/view"
+                app:layout_constraintTop_toBottomOf="@id/ivUntilted"
+                app:layout_constraintBottom_toTopOf="@id/viewPager"
                 tools:ignore="MissingConstraints" />
             <com.example.wowlucky.CircularProgressBar
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/view"
+                app:layout_constraintTop_toBottomOf="@id/ivUntilted"
+                app:layout_constraintBottom_toTopOf="@id/viewPager"
                 android:id="@+id/circularProgressBar"
                 android:layout_width="@dimen/_374dp"
                 android:layout_height="@dimen/_374dp"
@@ -246,19 +246,12 @@
                 android:textSize="@dimen/_27sp"
                 tools:ignore="MissingConstraints" />
 
-
             <androidx.viewpager2.widget.ViewPager2
-                android:layout_marginTop="@dimen/_33dp"
+                android:layout_marginBottom="@dimen/_120dp"
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_80dp"
-                app:layout_constraintTop_toBottomOf="@id/ivCenter"
-                tools:ignore="MissingConstraints" />
-            <View
-                android:id="@+id/view"
-                app:layout_constraintTop_toBottomOf="@id/viewPager"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

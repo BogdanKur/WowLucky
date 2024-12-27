@@ -122,37 +122,38 @@
                 android:layout_height="@dimen/_40dp"
                 android:background="@android:color/transparent" />
         </FrameLayout>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@drawable/input_chat"
-            android:hint="@string/your_message"
-            android:padding="@dimen/_12dp"
-            android:textColor="@color/white"
-            android:textColorHint="#646464"
-            android:textSize="@dimen/_16sp" />
-
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_15dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/light1" />
+                android:layout_gravity="center"
+                android:background="@drawable/input_chat"
+                android:hint="@string/your_message"
+                android:padding="@dimen/_12dp"
+                android:textColor="@color/white"
+                android:textColorHint="#646464"
+                android:textSize="@dimen/_16sp" />
+            <FrameLayout
+                android:layout_marginEnd="@dimen/_20dp"
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="@dimen/_24dp"
+                android:layout_gravity="end|center"
+                android:layout_marginStart="@dimen/_15dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSend"
-                android:layout_width="@dimen/_32dp"
-                android:layout_height="@dimen/_32dp"
-                android:background="@android:color/transparent" />
+                <ImageView
+                    android:layout_width="@dimen/_24dp"
+                    android:layout_height="@dimen/_24dp"
+                    android:src="@drawable/light1" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSend"
+                    android:layout_width="@dimen/_24dp"
+                    android:layout_height="@dimen/_24dp"
+                    android:background="@android:color/transparent" />
+            </FrameLayout>
         </FrameLayout>
-
     </LinearLayout>
     <LinearLayout
         android:id="@+id/llNoMessage"

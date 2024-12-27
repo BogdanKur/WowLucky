@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.ViewCompat
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentFaqBinding
@@ -23,7 +24,6 @@ class FaqFragment : Fragment() {
     var isOpen3 = false
     var isOpen4 = false
     var isOpen5 = false
-    var isOpen6 = false
     var lastPos = "null"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +41,18 @@ class FaqFragment : Fragment() {
         arguments?.let { bundle->
             lastPos = bundle.getString("support").toString()
         }
+        val adapter = FaqAdapter()
+        binding.rvFaq.adapter = adapter
+        val listOfQuestion = listOf(
+            FaqItem(),FaqItem(), FaqItem(), FaqItem(), FaqItem(), FaqItem()
+        )
+        adapter.submitList(listOfQuestion)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.rvFaq) { v, insets ->
+            val bottomInset = insets.systemGestureInsets.bottom
+            val paddingBottom = resources.getDimension(R.dimen._36dp).toInt()
+            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, bottomInset + paddingBottom)
+            insets
+        }
         binding.imageView.setOnClickListener {
             if(lastPos == "support") {
                 val action = FaqFragmentDirections.actionFaqFragmentToSupportFragment()
@@ -50,36 +62,19 @@ class FaqFragment : Fragment() {
                 navController.navigate(action)
             }
         }
-        binding.openQuestionOne.setOnClickListener {
-            isOpen1 = openQuestionAnswer(binding.openQuestionOne, binding.questionAnswer1, isOpen1, binding.clQuestionOne)
-        }
-        binding.openQuestionTwo.setOnClickListener {
-            isOpen2 = openQuestionAnswer(binding.openQuestionTwo, binding.questionAnswer2, isOpen2, binding.clQuestionTwo)
-        }
-        binding.openQuestionThree.setOnClickListener {
-            isOpen3 = openQuestionAnswer(binding.openQuestionThree, binding.questionAnswer3, isOpen3, binding.clQuestionThree)
-        }
-        binding.openQuestionFour.setOnClickListener {
-            isOpen4 = openQuestionAnswer(binding.openQuestionFour, binding.questionAnswer4, isOpen4, binding.clQuestionFour)
-        }
-        binding.openQuestionFive.setOnClickListener {
-            isOpen5 = openQuestionAnswer(binding.openQuestionFive, binding.questionAnswer5, isOpen5, binding.clQuestionFive)
-        }
+
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     fun openQuestionAnswer(button: ImageView, open: LinearLayout, isOpen: Boolean, clQuestion: ConstraintLayout): Boolean {
-        val caretDownDrawable = resources.getDrawable(R.drawable.up_white, null)
-        val caretUpDrawable = resources.getDrawable(R.drawable.down_white, null)
         if (!isOpen) {
             clQuestion.setBackgroundResource(R.drawable.faq_bg1)
             open.visibility = View.VISIBLE
-            button.setImageDrawable(caretUpDrawable)
+            button.setImageResource(R.drawable.down_white)
             return true
         } else {
             clQuestion.setBackgroundResource(R.drawable.faq_bg)
             open.visibility = View.GONE
-            button.setImageDrawable(caretDownDrawable)
+            button.setImageResource(R.drawable.up_white)
             return false
         }
     }

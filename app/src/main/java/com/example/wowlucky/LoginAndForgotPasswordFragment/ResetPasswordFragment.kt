@@ -36,7 +36,7 @@ class ResetPasswordFragment : Fragment() {
                     binding.etEmail.setBackgroundResource(R.drawable.red_input)
                 } else {
                     binding.etEmail.setBackgroundResource(R.drawable.input)
-                    binding.ivContinue.setBackgroundDrawable(resources.getDrawable(R.drawable.btn_gradient_30dp_radius))
+                    binding.ivContinue.setBackgroundResource(R.drawable.btn_gradient_30dp_radius)
                     binding.btnContinue.isEnabled = true
                 }
             }

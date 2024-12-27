@@ -36,17 +36,17 @@ class RegistrationInactiveFragment : Fragment() {
         binding.btnHaveAnAccount.text = spannableText
         binding.checkbox.setOnClickListener {
             if(binding.checkbox.isChecked) {
-                binding.btnSignUpGoogle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.google_icon, 0, 0, 0)
+                binding.ivGoogle.setImageResource(R.drawable.google_icon)
                 binding.btnSignUpEmail.isClickable = true
                 binding.btnSignUpGoogle.isClickable = true
-                binding.btnBackgroundEmail.setBackgroundDrawable(resources.getDrawable(R.drawable.btn_gradient_30dp_radius))
-                binding.btnBackgroundGoogle.setBackgroundDrawable(resources.getDrawable(R.drawable.btn_gradient_30dp_radius))
+                binding.btnBackgroundEmail.setBackgroundResource(R.drawable.btn_gradient_30dp_radius)
+                binding.btnBackgroundGoogle.setBackgroundResource(R.drawable.btn_gradient_30dp_radius)
             } else {
-                binding.btnSignUpGoogle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.google_icon_inactive, 0, 0, 0)
+                binding.ivGoogle.setImageResource(R.drawable.google_icon_inactive)
                 binding.btnSignUpEmail.isClickable = false
                 binding.btnSignUpGoogle.isClickable = false
-                binding.btnBackgroundEmail.setBackgroundDrawable(resources.getDrawable(R.drawable.frame_62))
-                binding.btnBackgroundGoogle.setBackgroundDrawable(resources.getDrawable(R.drawable.frame_62))
+                binding.btnBackgroundEmail.setBackgroundResource(R.drawable.frame_62)
+                binding.btnBackgroundGoogle.setBackgroundResource(R.drawable.frame_62)
             }
         }
         binding.btnSignUpEmail.setOnClickListener {

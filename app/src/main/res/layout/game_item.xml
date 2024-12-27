@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_marginTop="@dimen/_8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:layout_marginEnd="@dimen/_4dp"
+        android:id="@+id/frame1"
+        android:background="@drawable/game"
+        android:layout_width="@dimen/_178dp"
+        android:layout_height="@dimen/_190dp"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:id="@+id/ivGun"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_130dp"
+            android:layout_height="@dimen/_180dp"
+            android:src="@drawable/avtomat2"/>
+        <TextView
+            android:paddingVertical="@dimen/_3dp"
+            android:paddingHorizontal="@dimen/_15dp"
+            android:background="@drawable/text_bg"
+            android:textSize="@dimen/_16sp"
+            android:textColor="#F8FAFF"
+            android:layout_marginBottom="@dimen/_13dp"
+            android:text="@string/lorem_ipsum_dolor"
+            android:layout_gravity="bottom|center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+    <TextView
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/frame1"
+        app:layout_constraintBottom_toBottomOf="@id/frame1"
+        app:layout_constraintEnd_toEndOf="@id/frame1"
+        app:layout_constraintStart_toStartOf="@id/frame1"
+        android:id="@+id/tvPlayer1"
+        android:textSize="@dimen/_16sp"
+        android:textColor="#F8FAFF"
+        android:text="@string/_24_players_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

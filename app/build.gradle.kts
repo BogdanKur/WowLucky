@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+    implementation("com.tbuonomo:dotsindicator:4.3")
     implementation ("androidx.navigation:navigation-fragment-ktx:2.8.4")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
     implementation("androidx.recyclerview:recyclerview:1.3.2")

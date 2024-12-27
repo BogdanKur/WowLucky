@@ -8,8 +8,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ScrollView
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
+import com.example.wowlucky.BlurUtils.applyBlur
+import com.example.wowlucky.BlurUtils.removeBlur
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentProfileBinding
 
@@ -25,18 +28,15 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.S)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentProfileBinding.bind(view)
+        removeBlur(binding.root)
         val navController = findNavController()
         binding.cl2.setOnClickListener {
-            binding.scrollViewRoot.setRenderEffect(RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP))
-            val bottomSheet = BalanceTypesFragment()
-            fragmentManager?.let { it1 -> bottomSheet.show(it1, "BalanceTypesFragment") }
-            bottomSheet.dialog?.setOnDismissListener {
-                binding.scrollViewRoot.setRenderEffect(null)
-            }
+            applyBlur(requireContext(), binding.scrollViewRoot)
+            val action = ProfileFragmentDirections.actionProfileFragmentToBalanceTypeFragment()
+            navController.navigate(action)
         }
         binding.referral.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToReferralFragment()

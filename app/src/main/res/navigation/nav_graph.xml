@@ -160,6 +160,13 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_enterConfirmationCodeFragment_to_continueToLoginFragment"
+            app:destination="@id/continueToLoginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -167,4 +174,48 @@
         tools:layout="@layout/fragment_main">
 
     </fragment>
+    <fragment
+        android:id="@+id/continueToLoginFragment"
+        android:name="com.example.wowlucky.LoginAndForgotPasswordFragment.ContinueToLoginFragment"
+        tools:layout="@layout/fragment_continue_to_login">
+        <action
+            android:id="@+id/action_continueToLoginFragment_to_enterConfirmationCodeFragment"
+            app:destination="@id/enterConfirmationCodeFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+    <dialog
+        android:id="@+id/chooseDialogFragment"
+        android:name="com.example.wowlucky.game.ChooseDialogFragment"
+        tools:layout="@layout/fragment_choose_dialog">
+    </dialog>
+
+    <dialog
+        android:id="@+id/winDialogFragment"
+        android:name="com.example.wowlucky.game.WinDialogFragment"
+        tools:layout="@layout/fragment_win_dialog">
+    </dialog>
+
+    <dialog
+        android:id="@+id/loseDialogFragment"
+        android:name="com.example.wowlucky.game.LoseDialogFragment"
+        tools:layout="@layout/fragment_lose_dialog">
+    </dialog>
+    <dialog
+        android:id="@+id/gunDialogFragment"
+        android:name="com.example.wowlucky.game.GunDialogFragment"
+        tools:layout="@layout/fragment_gun_dialog">
+    </dialog>
+    <dialog
+        android:id="@+id/resultGunDialogFragment"
+        android:name="com.example.wowlucky.game.ResultGunDialogFragment"
+        tools:layout="@layout/fragment_result_gun_dialog">
+    </dialog>
+    <dialog
+        android:id="@+id/oopsDialogFragment"
+        android:name="com.example.wowlucky.game.OopsDialogFragment"
+        tools:layout="@layout/fragment_oops_dialog">
+    </dialog>
 </navigation>

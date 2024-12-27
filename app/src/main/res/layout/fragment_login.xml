@@ -44,10 +44,11 @@
             android:layout_height="wrap_content"
             android:text="@string/email"/>
         <com.google.android.material.textfield.TextInputEditText
+            android:fontFamily="@font/agrandir"
             android:id="@+id/etEmail"
             android:textColor="#F8FAFF"
             android:hint="@string/what_s_your_email"
-            android:textColorHint="#F8FAFF"
+            android:textColorHint="#646464"
             android:textSize="@dimen/_16sp"
             android:paddingStart="@dimen/_20dp"
             android:layout_marginTop="@dimen/_10dp"
@@ -73,18 +74,21 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <com.google.android.material.textfield.TextInputEditText
+                android:fontFamily="@font/agrandir"
                 android:id="@+id/etPassword"
-                android:inputType="textPassword"
-                android:textColor="#F8FAFF"
-                android:hint="@string/enter_your_password_here"
-                android:textColorHint="#F8FAFF"
-                android:textSize="@dimen/_16sp"
-                android:paddingStart="@dimen/_20dp"
-                android:layout_marginTop="@dimen/_10dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_47dp"
-                android:background="@drawable/input"/>
+                android:layout_marginTop="@dimen/_10dp"
+                android:background="@drawable/input"
+                android:hint="@string/enter_your_password_here"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/_20dp"
+                android:textColor="#F8FAFF"
+                android:textColorHint="#646464"
+                android:textSize="@dimen/_16sp" />
+
             <ImageButton
                 android:layout_marginTop="@dimen/_8dp"
                 android:id="@+id/btnPassVisible"
@@ -92,7 +96,8 @@
                 android:layout_height="@dimen/_24dp"
                 android:layout_gravity="center|end"
                 android:layout_marginEnd="@dimen/_24dp"
-                android:background="@drawable/close_eye" />
+                android:src="@drawable/close_eye"
+                android:background="@android:color/transparent" />
         </FrameLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_marginTop="@dimen/_22dp"
@@ -140,6 +145,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/frame_62"/>
         <com.google.android.material.button.MaterialButton
+            android:textStyle="bold"
             android:enabled="false"
             android:id="@+id/btnContinue"
             android:layout_width="match_parent"

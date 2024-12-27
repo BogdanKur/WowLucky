@@ -43,7 +43,8 @@ private fun recordInitialMarginForView(view: View) =
 fun View.addTopAndBottomPaddings() {
     doOnApplyWindowInsets { view, insets, rect ->
         view.updatePadding(
-            top = rect.top + insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            top = rect.top + insets.getInsets(WindowInsetsCompat.Type.statusBars()).top,
+            bottom = rect.bottom + insets.getInsets(WindowInsetsCompat.Type.statusBars()).bottom
         )
         insets
     }

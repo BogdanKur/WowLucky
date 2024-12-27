@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph1"
     app:startDestination="@id/gamePageFragment">
+
     <fragment
         android:id="@+id/gamePageFragment"
         android:name="com.example.wowlucky.game.GamePageFragment"
@@ -184,6 +185,13 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_gameTransactionsFragment_to_filtrationFragment"
+            app:destination="@id/filtrationFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/withdrawalsFragment"
@@ -307,5 +315,44 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_profileFragment_to_balanceTypeFragment"
+            app:destination="@id/balanceType"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_profileFragment_to_filtrationFragment"
+            app:destination="@id/filtrationFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
+    <dialog
+        android:id="@+id/balanceType"
+        android:name="com.example.wowlucky.profile.BalanceTypesFragment"
+        tools:layout="@layout/fragment_balance_types">
+        <action
+            android:id="@+id/action_balanceTypeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </dialog>
+    <dialog
+        android:id="@+id/filtrationFragment"
+        android:name="com.example.wowlucky.profile.FiltrationWithdrawalFragment"
+        tools:layout="@layout/fragment_filtration_withdrawal">
+        <action
+            android:id="@+id/action_filtrationFragment_to_transactionsFragment"
+            app:destination="@id/gamingTransactionsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </dialog>
+    <include app:graph="@navigation/nav_graph" />
 </navigation>

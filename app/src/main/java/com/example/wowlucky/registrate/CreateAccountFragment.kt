@@ -1,5 +1,6 @@
 package com.example.wowlucky.registrate
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
@@ -17,6 +18,7 @@ import com.google.android.material.textfield.TextInputEditText
 class CreateAccountFragment : Fragment() {
     private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
+    private var isPasswordVisible = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +31,6 @@ class CreateAccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentCreateAccountBinding.bind(view)
         val navController = findNavController()
-        binding.etPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
         binding.btnPassVisible.setOnClickListener {
             togglePasswordVisibility(binding.btnPassVisible, binding.etPassword)
         }
@@ -43,7 +44,7 @@ class CreateAccountFragment : Fragment() {
                     binding.tvError.visibility = View.VISIBLE
                 } else {
                     binding.etEmail.setBackgroundResource(R.drawable.input)
-                    binding.ivContinue.setBackgroundDrawable(resources.getDrawable(R.drawable.btn_gradient_30dp_radius))
+                    binding.ivContinue.setBackgroundResource(R.drawable.btn_gradient_30dp_radius)
                     binding.btnContinue.isEnabled = true
                     binding.tvError.visibility = View.GONE
                 }
@@ -67,12 +68,17 @@ class CreateAccountFragment : Fragment() {
     }
 
     private fun togglePasswordVisibility(button: ImageButton, etNewPassword: TextInputEditText) {
-        if (etNewPassword.inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
-            etNewPassword.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
-            button.setBackgroundResource(R.drawable.close_eye)
-        } else {
+        val typeface: Typeface? = resources.getFont(R.font.agrandir)
+        isPasswordVisible = !isPasswordVisible
+        if (isPasswordVisible) {
             etNewPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-            button.setBackgroundResource(R.drawable.open_eye)
+            button.setImageResource(R.drawable.open_eye)
+            etNewPassword.typeface = typeface
+        } else {
+            etNewPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            button.setImageResource(R.drawable.close_eye)
+            etNewPassword.typeface = typeface
         }
+        etNewPassword.setSelection(etNewPassword.text?.length ?: 0)
     }
 }

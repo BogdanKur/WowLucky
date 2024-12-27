@@ -16,11 +16,13 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.example.wowlucky.CircularProgressBar
 import com.example.wowlucky.R
+import com.example.wowlucky.addTopAndBottomPaddings
 import com.example.wowlucky.databinding.FragmentGamePageBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
@@ -41,12 +43,11 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
         return inflater.inflate(R.layout.fragment_game_page, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.S)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentGamePageBinding.bind(view)
         val navController = findNavController()
-
+        binding.root.addTopAndBottomPaddings()
         binding.ivCenter.setOnClickListener { view ->
             val scaleUpX = ObjectAnimator.ofFloat(view, View.SCALE_X, 1f, 1.1f)
             val scaleUpY = ObjectAnimator.ofFloat(view, View.SCALE_Y, 1f, 1.1f)
@@ -125,7 +126,6 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
                 }
             }
 
-            @RequiresApi(Build.VERSION_CODES.S)
             override fun onFinish() {
                 when(remaining) {
                     1 -> {
@@ -147,32 +147,6 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
                 binding.circularProgressBar.setOuterProgress(100f)
             }
         }.start()
-    }
-
-
-
-
-    @RequiresApi(Build.VERSION_CODES.S)
-    private fun updateUI() {
-        binding.ivCenter.setBackgroundResource(R.drawable.center_all)
-    }
-    @RequiresApi(Build.VERSION_CODES.S)
-    private fun showPopupFirstGun() {
-        val popupYouWin: ConstraintLayout = requireActivity().findViewById(R.id.popupYouFirstGun)
-        popupYouWin.visibility = View.VISIBLE
-        val btn: MaterialButton = requireActivity().findViewById(R.id.btnTakePicture1)
-        btn.setOnClickListener { hidePopupFirstGun() }
-        binding.allViews.setRenderEffect(RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP))
-        val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNavigationView.setRenderEffect(RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP))
-    }
-    @RequiresApi(Build.VERSION_CODES.S)
-    private fun hidePopupFirstGun() {
-        val popupYouWin: ConstraintLayout = requireActivity().findViewById(R.id.popupYouFirstGun)
-        popupYouWin.visibility = View.GONE
-        binding.allViews.setRenderEffect(null)
-        val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNavigationView.setRenderEffect(null)
     }
 
     override fun onButtonClick() {

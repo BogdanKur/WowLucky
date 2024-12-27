@@ -28,12 +28,7 @@ class ContinueToLoginFragment : BottomSheetDialogFragment() {
         binding.btnContinue.setOnClickListener {
             val action = EnterConfirmationCodeFragmentDirections.actionEnterConfirmationCodeFragmentToLoginFragment()
             navController.navigate(action)
-            dismiss()
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        dismiss()
-    }
 }

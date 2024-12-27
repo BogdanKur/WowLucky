@@ -11,7 +11,6 @@ import com.example.wowlucky.databinding.FragmentRegistrationBinding
 
 class RegistrationActiveFragment : Fragment() {
     private var _binding: FragmentRegistrationBinding? = null
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,7 +22,6 @@ class RegistrationActiveFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentRegistrationBinding.bind(view)
-        val navController = findNavController()
 
     }
 

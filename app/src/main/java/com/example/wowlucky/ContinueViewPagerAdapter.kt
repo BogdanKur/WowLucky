@@ -2,6 +2,7 @@ package com.example.wowlucky
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DiffUtil
@@ -13,15 +14,9 @@ import com.example.wowlucky.databinding.ViewPagerBinding
 class ContinueViewPagerAdapter : ListAdapter<Continue, ContinueViewPagerAdapter.ContinueViewPagerViewHolder>(ViewPagerDiffCallback()) {
     class ContinueViewPagerViewHolder(private val binding: ViewPagerBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(item: Continue) {
-            binding.ivFirst1.setImageResource(item.imageResId1)
+            binding.root.setBackgroundResource(item.imageResId1)
             binding.ivSecond1.setImageResource(item.imageResId2)
-            if (position == 0) {
-                binding.ivSecond.setImageResource(R.drawable.frame_2085660591)
-            } else {
-                binding.ivSecond.setImageResource(R.drawable.second_view_pager)
-            }
         }
     }
 

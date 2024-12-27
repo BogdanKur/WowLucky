@@ -14,6 +14,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
+import com.example.wowlucky.BlurUtils.applyBlur
+import com.example.wowlucky.BlurUtils.removeBlur
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentEnterConfimationCodeBinding
 import com.google.android.material.textfield.TextInputEditText
@@ -29,10 +31,10 @@ class EnterConfirmationCodeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_enter_confimation_code, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.S)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentEnterConfimationCodeBinding.bind(view)
+        removeBlur(binding.root)
         val navController = findNavController()
         binding.etEnterPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
         binding.etRepeatPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
@@ -47,14 +49,9 @@ class EnterConfirmationCodeFragment : Fragment() {
                 binding.linearLayout.visibility = View.GONE
                 binding.llPassword.visibility = View.VISIBLE
             } else {
-                binding.rootLayout.setRenderEffect(
-                    RenderEffect.createBlurEffect(10f, 10f, Shader.TileMode.CLAMP)
-                )
-                val bottomSheet = ContinueToLoginFragment()
-                fragmentManager?.let { it1 -> bottomSheet.show(it1, "ContinueToLoginFragment") }
-                bottomSheet.dialog?.setOnDismissListener {
-                    binding.rootLayout.setRenderEffect(null)
-                }
+                applyBlur(requireContext(), binding.rootLayout)
+                val action = EnterConfirmationCodeFragmentDirections.actionEnterConfirmationCodeFragmentToContinueToLoginFragment()
+                navController.navigate(action)
             }
         }
         val textWatcher = object : TextWatcher {
@@ -85,7 +82,7 @@ class EnterConfirmationCodeFragment : Fragment() {
                 binding.textInputEditText5.text?.isNotBlank() == true &&
                 binding.textInputEditText6.text?.isNotBlank() == true
         if(isAllFilled) {
-            binding.ivContinue.setBackgroundDrawable(resources.getDrawable(R.drawable.btn_gradient_30dp_radius))
+            binding.ivContinue.setBackgroundResource(R.drawable.btn_gradient_30dp_radius)
             binding.btnContinue.isEnabled = true
         }
     }
