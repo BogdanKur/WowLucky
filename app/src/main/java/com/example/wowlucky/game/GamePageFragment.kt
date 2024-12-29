@@ -17,6 +17,7 @@ import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
@@ -49,6 +50,7 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
         val navController = findNavController()
         binding.root.addTopAndBottomPaddings()
         binding.ivCenter.setOnClickListener { view ->
+            //showPopupGun()
             val scaleUpX = ObjectAnimator.ofFloat(view, View.SCALE_X, 1f, 1.1f)
             val scaleUpY = ObjectAnimator.ofFloat(view, View.SCALE_Y, 1f, 1.1f)
             val scaleDownX = ObjectAnimator.ofFloat(view, View.SCALE_X, 1.1f, 1f)
@@ -70,7 +72,6 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
             }
             binding.circularProgressBar.elementToUpdateIndex = 0
             startTimer()
-            //showPopupFirstGun()
 
         }
         newsAdapter = NewsAdapter(this)
@@ -148,6 +149,16 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
             }
         }.start()
     }
+
+    private fun showPopupGun() {
+        val navController = requireActivity().findNavController(R.id.nav_host_fragment)
+        navController.navigate(R.id.gunDialogFragment)
+    }
+    private fun showPopupResultGun() {
+        val navController = requireActivity().findNavController(R.id.nav_host_fragment)
+        navController.navigate(R.id.resultGunDialogFragment)
+    }
+
 
     override fun onButtonClick() {
         val action = GamePageFragmentDirections.actionGamePageFragmentToGameFragment()

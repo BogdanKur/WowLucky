@@ -67,9 +67,10 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:paddingBottom="@dimen/_5dp"
             android:inputType="number"
             android:textColor="@color/white"
-            android:textSize="@dimen/_28sp"
+            android:textSize="@dimen/_32sp"
             android:gravity="center"
             android:maxLength="1"
             android:id="@+id/textInputEditText1"
@@ -83,9 +84,10 @@
             android:nextFocusForward="@id/textInputEditText2"/>
 
         <com.google.android.material.textfield.TextInputEditText
+            android:paddingBottom="@dimen/_5dp"
             android:inputType="number"
             android:textColor="@color/white"
-            android:textSize="@dimen/_28sp"
+            android:textSize="@dimen/_32sp"
             android:gravity="center"
             android:maxLength="1"
             android:id="@+id/textInputEditText2"
@@ -98,9 +100,11 @@
             android:singleLine="true"
             android:nextFocusForward="@id/textInputEditText3"/>
         <com.google.android.material.textfield.TextInputEditText
+
+            android:paddingBottom="@dimen/_5dp"
             android:inputType="number"
             android:textColor="@color/white"
-            android:textSize="@dimen/_28sp"
+            android:textSize="@dimen/_32sp"
             android:gravity="center"
             android:maxLength="1"
             android:id="@+id/textInputEditText3"
@@ -123,9 +127,10 @@
             app:layout_constraintStart_toEndOf="@id/textInputEditText3"
             app:layout_constraintTop_toTopOf="parent" />
         <com.google.android.material.textfield.TextInputEditText
+            android:paddingBottom="@dimen/_5dp"
             android:inputType="number"
             android:textColor="@color/white"
-            android:textSize="@dimen/_28sp"
+            android:textSize="@dimen/_32sp"
             android:gravity="center"
             android:maxLength="1"
             android:id="@+id/textInputEditText4"
@@ -138,9 +143,10 @@
             android:singleLine="true"
             android:nextFocusForward="@id/textInputEditText5"/>
         <com.google.android.material.textfield.TextInputEditText
+            android:paddingBottom="@dimen/_5dp"
             android:inputType="number"
             android:textColor="@color/white"
-            android:textSize="@dimen/_28sp"
+            android:textSize="@dimen/_32sp"
             android:gravity="center"
             android:maxLength="1"
             android:id="@+id/textInputEditText5"
@@ -154,9 +160,10 @@
             android:nextFocusForward="@id/textInputEditText6"/>
 
         <com.google.android.material.textfield.TextInputEditText
+            android:paddingBottom="@dimen/_5dp"
             android:inputType="number"
             android:textColor="@color/white"
-            android:textSize="@dimen/_28sp"
+            android:textSize="@dimen/_32sp"
             android:gravity="center"
             android:maxLength="1"
             android:id="@+id/textInputEditText6"
@@ -188,11 +195,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
+                android:fontFamily="@font/agrandir"
                 android:id="@+id/etEnterPassword"
                 android:inputType="textPassword"
                 android:textColor="#F8FAFF"
                 android:hint="@string/enter_new_password"
-                android:textColorHint="#F8FAFF"
+                android:textColorHint="#646464"
                 android:textSize="@dimen/_16sp"
                 android:paddingStart="@dimen/_20dp"
                 android:layout_marginTop="@dimen/_10dp"
@@ -206,7 +214,8 @@
                 android:layout_height="@dimen/_24dp"
                 android:layout_gravity="center|end"
                 android:layout_marginEnd="@dimen/_24dp"
-                android:background="@drawable/close_eye" />
+                android:background="@android:color/transparent"
+                android:src="@drawable/close_eye" />
         </FrameLayout>
     <TextView
         android:layout_marginTop="@dimen/_20dp"
@@ -219,11 +228,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
+                android:fontFamily="@font/agrandir"
                 android:id="@+id/etRepeatPassword"
                 android:inputType="textPassword"
                 android:textColor="#F8FAFF"
                 android:hint="@string/repeat_new_password"
-                android:textColorHint="#F8FAFF"
+                android:textColorHint="#646464"
                 android:textSize="@dimen/_16sp"
                 android:paddingStart="@dimen/_20dp"
                 android:layout_marginTop="@dimen/_10dp"
@@ -237,7 +247,8 @@
                 android:layout_height="@dimen/_24dp"
                 android:layout_gravity="center|end"
                 android:layout_marginEnd="@dimen/_24dp"
-                android:background="@drawable/close_eye" />
+                android:background="@android:color/transparent"
+                android:src="@drawable/close_eye" />
         </FrameLayout>
     </LinearLayout>
     <FrameLayout

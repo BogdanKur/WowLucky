@@ -2,6 +2,7 @@ package com.example.wowlucky.LoginAndForgotPasswordFragment
 
 import android.graphics.RenderEffect
 import android.graphics.Shader
+import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -23,7 +24,7 @@ import com.google.android.material.textfield.TextInputEditText
 class EnterConfirmationCodeFragment : Fragment() {
     private var _binding: FragmentEnterConfimationCodeBinding? = null
     private val binding get() = _binding!!
-
+    private var isPasswordVisible = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,8 +37,8 @@ class EnterConfirmationCodeFragment : Fragment() {
         _binding = FragmentEnterConfimationCodeBinding.bind(view)
         removeBlur(binding.root)
         val navController = findNavController()
-        binding.etEnterPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-        binding.etRepeatPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+
+
         binding.btnPassEnterVisible.setOnClickListener {
             togglePasswordVisibility(binding.btnPassEnterVisible, binding.etEnterPassword)
         }
@@ -45,7 +46,7 @@ class EnterConfirmationCodeFragment : Fragment() {
             togglePasswordVisibility(binding.btnPassRepeatVisible, binding.etRepeatPassword)
         }
         binding.btnContinue.setOnClickListener {
-            if(binding.llPassword.visibility ==View.GONE) {
+            if(binding.llPassword.visibility == View.GONE) {
                 binding.linearLayout.visibility = View.GONE
                 binding.llPassword.visibility = View.VISIBLE
             } else {
@@ -54,23 +55,43 @@ class EnterConfirmationCodeFragment : Fragment() {
                 navController.navigate(action)
             }
         }
-        val textWatcher = object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            override fun afterTextChanged(s: Editable?) {
-                checkFields()
-            }
-        }
-        binding.textInputEditText1.addTextChangedListener(textWatcher)
-        binding.textInputEditText2.addTextChangedListener(textWatcher)
-        binding.textInputEditText3.addTextChangedListener(textWatcher)
-        binding.textInputEditText4.addTextChangedListener(textWatcher)
-        binding.textInputEditText5.addTextChangedListener(textWatcher)
-        binding.textInputEditText6.addTextChangedListener(textWatcher)
+
+        setupTextWatchers()
 
         binding.imageView.setOnClickListener {
             val action = EnterConfirmationCodeFragmentDirections.actionEnterConfirmationCodeFragmentToResetPasswordFragment()
             navController.navigate(action)
+        }
+    }
+
+    private fun setupTextWatchers() {
+        val editTexts = listOf(
+            binding.textInputEditText1,
+            binding.textInputEditText2,
+            binding.textInputEditText3,
+            binding.textInputEditText4,
+            binding.textInputEditText5,
+            binding.textInputEditText6
+        )
+
+        for (i in editTexts.indices) {
+            editTexts[i].addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+                override fun afterTextChanged(s: Editable?) {
+                    checkFields()
+
+                    if (s.toString().length == 1 && i < editTexts.size - 1) {
+                        editTexts[i + 1].requestFocus()
+                    }
+
+                    if (s.toString().isEmpty() && i > 0) {
+                        editTexts[i - 1].requestFocus()
+                    }
+                }
+            })
         }
     }
 
@@ -81,19 +102,24 @@ class EnterConfirmationCodeFragment : Fragment() {
                 binding.textInputEditText4.text?.isNotBlank() == true &&
                 binding.textInputEditText5.text?.isNotBlank() == true &&
                 binding.textInputEditText6.text?.isNotBlank() == true
-        if(isAllFilled) {
+        if (isAllFilled) {
             binding.ivContinue.setBackgroundResource(R.drawable.btn_gradient_30dp_radius)
             binding.btnContinue.isEnabled = true
         }
     }
 
     private fun togglePasswordVisibility(button: ImageButton, etNewPassword: TextInputEditText) {
-        if (etNewPassword.inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
-            etNewPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-            button.setBackgroundResource(R.drawable.close_eye)
-        } else {
+        val typeface: Typeface = resources.getFont(R.font.agrandir)
+        isPasswordVisible = !isPasswordVisible
+        if (isPasswordVisible) {
             etNewPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-            button.setBackgroundResource(R.drawable.open_eye)
+            button.setImageResource(R.drawable.open_eye)
+            etNewPassword.typeface = typeface
+        } else {
+            etNewPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            button.setImageResource(R.drawable.close_eye)
+            etNewPassword.typeface = typeface
         }
+        etNewPassword.setSelection(etNewPassword.text?.length ?: 0)
     }
 }

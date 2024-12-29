@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ScrollView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
@@ -30,7 +31,7 @@ class ResultGunDialogFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentResultGunDialogBinding.bind(view)
-        val allView: ConstraintLayout = requireActivity().findViewById(R.id.allViewss)
+        val allView: ScrollView = requireActivity().findViewById(R.id.gamePage)
         val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         binding.btnTakePicture9.setOnClickListener {
             removeBlur(allView)
