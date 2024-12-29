@@ -42,8 +42,8 @@ class ContinueFragment : Fragment() {
         binding.viewPager.setPageTransformer(CustomPageTransformer(binding.linearLayoutVP, binding.indicator, requireContext()))
         adapter = ContinueViewPagerAdapter()
         binding.viewPager.adapter = adapter
-        val listOfPagers = listOf(Continue(R.drawable.page1_bg, R.drawable.avtomat5),
-            Continue(R.drawable.page2_bg, R.drawable.avtomat6)
+        val listOfPagers = listOf(Continue(R.drawable.page1_bg, R.drawable.avtomat6),
+            Continue(R.drawable.page2_bg, R.drawable.avtomat9)
         )
         adapter.submitList(listOfPagers)
         binding.indicator.attachTo(binding.viewPager)

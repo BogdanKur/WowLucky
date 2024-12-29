@@ -28,6 +28,8 @@
         app:layout_constraintTop_toTopOf="@id/ivLoot" />
 
     <TextView
+        android:layout_marginHorizontal="@dimen/_13dp"
+        android:textStyle="bold"
         android:id="@+id/tvWelcome"
         android:layout_marginTop="@dimen/_35dp"
         android:layout_width="match_parent"

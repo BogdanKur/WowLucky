@@ -19,15 +19,15 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:layout_marginTop="@dimen/_5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/enter_confirmation_code"
         android:textColor="#F8FAFF"
         android:textSize="@dimen/_26sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -41,7 +41,7 @@
         android:gravity="center"
         android:text="@string/enter_the_6_digit_login_code_we_sent_to_mariam_khachatryan_gmail_com"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView"
         tools:ignore="MissingConstraints" />
     <TextView
@@ -54,7 +54,7 @@
         android:gravity="center"
         android:text="@string/request_a_new_one"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEnter6Digit"
         tools:ignore="MissingConstraints" />
 
@@ -67,6 +67,7 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="number"
             android:textColor="@color/white"
             android:textSize="@dimen/_28sp"
             android:gravity="center"
@@ -76,9 +77,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/textInputEditText2"
-            android:background="@drawable/verify_code" />
+            android:background="@drawable/verify_code"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusForward="@id/textInputEditText2"/>
 
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="number"
             android:textColor="@color/white"
             android:textSize="@dimen/_28sp"
             android:gravity="center"
@@ -88,8 +93,12 @@
             android:layout_height="wrap_content"
             android:background="@drawable/verify_code"
             app:layout_constraintEnd_toStartOf="@id/textInputEditText3"
-            app:layout_constraintStart_toEndOf="@id/textInputEditText1"/>
+            app:layout_constraintStart_toEndOf="@id/textInputEditText1"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusForward="@id/textInputEditText3"/>
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="number"
             android:textColor="@color/white"
             android:textSize="@dimen/_28sp"
             android:gravity="center"
@@ -99,7 +108,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/verify_code"
             app:layout_constraintEnd_toStartOf="@id/line"
-            app:layout_constraintStart_toEndOf="@id/textInputEditText2"/>
+            app:layout_constraintStart_toEndOf="@id/textInputEditText2"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusForward="@id/textInputEditText4"/>
 
         <View
             android:id="@+id/line"
@@ -111,6 +123,7 @@
             app:layout_constraintStart_toEndOf="@id/textInputEditText3"
             app:layout_constraintTop_toTopOf="parent" />
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="number"
             android:textColor="@color/white"
             android:textSize="@dimen/_28sp"
             android:gravity="center"
@@ -120,8 +133,12 @@
             android:layout_height="wrap_content"
             android:background="@drawable/verify_code"
             app:layout_constraintEnd_toStartOf="@id/textInputEditText5"
-            app:layout_constraintStart_toEndOf="@id/line"/>
+            app:layout_constraintStart_toEndOf="@id/line"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusForward="@id/textInputEditText5"/>
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="number"
             android:textColor="@color/white"
             android:textSize="@dimen/_28sp"
             android:gravity="center"
@@ -131,9 +148,13 @@
             android:layout_height="wrap_content"
             android:background="@drawable/verify_code"
             app:layout_constraintEnd_toStartOf="@id/textInputEditText6"
-            app:layout_constraintStart_toEndOf="@id/textInputEditText4"/>
+            app:layout_constraintStart_toEndOf="@id/textInputEditText4"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusForward="@id/textInputEditText6"/>
 
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="number"
             android:textColor="@color/white"
             android:textSize="@dimen/_28sp"
             android:gravity="center"
@@ -143,7 +164,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/verify_code"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/textInputEditText5" />
+            app:layout_constraintStart_toEndOf="@id/textInputEditText5"
+            android:imeOptions="actionNext"
+            android:singleLine="true"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout
         android:visibility="gone"

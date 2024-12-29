@@ -17,7 +17,7 @@ class CustomPageTransformer(private val linearLayout: LinearLayout, private var 
     override fun transformPage(page: View, position: Float) {
         val density = context.resources.displayMetrics.density
 
-        val radius = 30 * density
+        val radius = 10 * density
 
         val angle = position * 35
         val radians = Math.toRadians(angle.toDouble())

@@ -113,6 +113,7 @@
                 android:background="@drawable/btn_gradient_30dp_radius" />
 
             <com.google.android.material.button.MaterialButton
+                android:textStyle="bold"
                 android:id="@+id/btnTakePicture1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

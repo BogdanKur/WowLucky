@@ -34,6 +34,6 @@ class MainFragment : Fragment() {
         val navController = (childFragmentManager.findFragmentById(R.id.nav_host_fragment1) as NavHostFragment).navController
 
         binding.bottomNavigationView.setupWithNavController(navController)
-        binding.root.addTopAndBottomPaddings()
+        binding.navHostFragment1.addTopAndBottomPaddings()
     }
 }
