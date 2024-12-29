@@ -37,7 +37,7 @@
         android:gravity="center"
         android:text="@string/welcome_to_wow_loot"
         android:textColor="#F8FAFF"
-        android:textSize="@dimen/_52sp"
+        android:textSize="@dimen/_50sp"
         app:layout_constraintTop_toBottomOf="@id/ivLoot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
