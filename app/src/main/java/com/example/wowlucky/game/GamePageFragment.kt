@@ -48,7 +48,6 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentGamePageBinding.bind(view)
         val navController = findNavController()
-        binding.root.addTopAndBottomPaddings()
         binding.ivCenter.setOnClickListener { view ->
             //showPopupGun()
             val scaleUpX = ObjectAnimator.ofFloat(view, View.SCALE_X, 1f, 1.1f)

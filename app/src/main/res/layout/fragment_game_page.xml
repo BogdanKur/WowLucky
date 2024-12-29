@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/game_page">
     <FrameLayout
-        android:background="@drawable/game_page"
         android:id="@+id/allViews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
