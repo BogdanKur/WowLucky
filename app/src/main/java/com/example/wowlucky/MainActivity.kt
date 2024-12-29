@@ -21,10 +21,8 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(view)
         binding.navHostFragment.addTopAndBottomPaddings()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val window = this.window
-            WindowCompat.setDecorFitsSystemWindows(window, false)
-            WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
-        }
+        val window = this.window
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
     }
 }
