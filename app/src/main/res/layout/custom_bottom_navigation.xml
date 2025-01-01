@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="bottom"
+    android:id="@+id/bottomNavigationView"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_100dp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:background="@drawable/bottom_navigation_bg"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:id="@+id/llHome"
+        android:background="@drawable/home_white"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="4dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/llChat"
+        android:background="@drawable/chat_white"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="4dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/llWallet"
+        android:background="@drawable/wallet_white"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="4dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/llProfile"
+        android:background="@drawable/profile_white"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="4dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

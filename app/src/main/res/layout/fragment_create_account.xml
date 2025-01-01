@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"
             android:text="@string/username"/>
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUsername"
             android:fontFamily="@font/agrandir"
             android:textColor="#F8FAFF"
             android:hint="@string/what_s_your_name"

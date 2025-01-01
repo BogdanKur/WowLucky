@@ -10,11 +10,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ScrollView
 import androidx.annotation.RequiresApi
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.BlurUtils.applyBlur
 import com.example.wowlucky.BlurUtils.removeBlur
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentProfileBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -33,6 +37,12 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.bind(view)
         removeBlur(binding.root)
         val navController = findNavController()
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
+            )
+            insets
+        }
         binding.cl2.setOnClickListener {
             applyBlur(requireContext(), binding.scrollViewRoot)
             val action = ProfileFragmentDirections.actionProfileFragmentToBalanceTypeFragment()
@@ -71,8 +81,8 @@ class ProfileFragment : Fragment() {
             navController.navigate(action)
         }
         binding.faq.setOnClickListener {
-            val action = ProfileFragmentDirections.actionProfileFragmentToFaqFragment()
-            navController.navigate(action)
+            val navControllers = requireActivity().findNavController(R.id.nav_host_fragment)
+            navControllers.navigate(R.id.faqFragment)
         }
         binding.earnings.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToMyProfileFragment()

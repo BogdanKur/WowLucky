@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentMyProfileBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 
 class MyProfileFragment : Fragment() {
     private var _binding: FragmentMyProfileBinding? = null
@@ -25,6 +28,12 @@ class MyProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentMyProfileBinding.bind(view)
         val navController = findNavController()
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
+            )
+            insets
+        }
         binding.imageView.setOnClickListener {
             val action = MyProfileFragmentDirections.actionMyProfileFragmentToProfileFragment()
             navController.navigate(action)

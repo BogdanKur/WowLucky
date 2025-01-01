@@ -10,9 +10,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentCreateAccountBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 import com.google.android.material.textfield.TextInputEditText
 
 class CreateAccountFragment : Fragment() {
@@ -33,6 +36,17 @@ class CreateAccountFragment : Fragment() {
         val navController = findNavController()
         binding.btnPassVisible.setOnClickListener {
             togglePasswordVisibility(binding.btnPassVisible, binding.etPassword)
+        }
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top,
+                bottom = rect.bottom + if (insets.getInsets(WindowInsetsCompat.Type.ime()).bottom == 0) {
+                    insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+                } else {
+                    insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
+                },
+            )
+            insets
         }
         binding.etEmail.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

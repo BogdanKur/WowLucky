@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
@@ -39,7 +40,7 @@ class LoseDialogFragment : DialogFragment() {
             window.attributes = lp
         }
         val allView: ConstraintLayout = requireActivity().findViewById(R.id.allViewss)
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val bottomNav = requireActivity().findViewById<LinearLayout>(R.id.bottomNavigationView)
         binding.imageView3.setOnClickListener {
             removeBlur(allView)
             removeBlur(bottomNav)

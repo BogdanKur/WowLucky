@@ -74,8 +74,8 @@
         android:name="com.example.wowlucky.game.ReferralCodeFragment"
         tools:layout="@layout/fragment_referral_code">
         <action
-            android:id="@+id/action_referralCodeFragment_to_gamePageFragment"
-            app:destination="@id/gamePageFragment"
+            android:id="@+id/action_referralCodeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
@@ -119,23 +119,6 @@
         android:name="com.example.wowlucky.support.SupportFragment"
         tools:layout="@layout/fragment_support">
         <action
-            android:id="@+id/action_supportFragment_to_chatFragment"
-            app:destination="@id/chatFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
-        <action
-            android:id="@+id/action_supportFragment_to_faqFragment"
-            app:destination="@id/faqFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out">
-            <argument android:name="support"
-                app:argType="string"/>
-        </action>
-        <action
             android:id="@+id/action_supportFragment_to_profileFragment"
             app:destination="@id/profileFragment"
             app:enterAnim="@anim/fade_in"
@@ -143,44 +126,14 @@
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out"/>
     </fragment>
-    <fragment
-        android:id="@+id/chatFragment"
-        android:name="com.example.wowlucky.support.ChatFragment"
-        tools:layout="@layout/fragment_chat">
-        <action
-            android:id="@+id/action_chatFragment_to_supportFragment"
-            app:destination="@id/supportFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
-    </fragment>
-    <fragment
-        android:id="@+id/faqFragment"
-        android:name="com.example.wowlucky.support.FaqFragment"
-        tools:layout="@layout/fragment_faq">
-        <action
-            android:id="@+id/action_faqFragment_to_supportFragment"
-            app:destination="@id/supportFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
-        <action
-            android:id="@+id/action_faqFragment_to_gamePageFragment"
-            app:destination="@id/gamePageFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
-    </fragment>
+
     <fragment
         android:id="@+id/gamingTransactionsFragment"
         android:name="com.example.wowlucky.wallet.GamingTransactionsFragment"
         tools:layout="@layout/fragment_gaming_transactions">
         <action
-            android:id="@+id/action_gameTransactionsFragment_to_gamePageFragment"
-            app:destination="@id/gamePageFragment"
+            android:id="@+id/action_gameTransactionsFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"

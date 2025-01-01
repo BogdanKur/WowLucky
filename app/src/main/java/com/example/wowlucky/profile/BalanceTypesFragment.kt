@@ -29,10 +29,7 @@ class BalanceTypesFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentBalanceTypesBinding.bind(view)
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNav.visibility = View.GONE
         binding.btnOk.setOnClickListener {
-            bottomNav.visibility = View.VISIBLE
             val action = BalanceTypesFragmentDirections.actionBalanceTypeFragmentToProfileFragment()
             findNavController().navigate(action)
         }

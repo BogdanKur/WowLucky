@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentSupportBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SupportFragment : Fragment() {
@@ -25,19 +29,23 @@ class SupportFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSupportBinding.bind(view)
         val navController = findNavController()
-        val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNavigationView.visibility = View.VISIBLE
         binding.frameLayout1.setOnClickListener {
-            val action = SupportFragmentDirections.actionSupportFragmentToFaqFragment("support")
-            navController.navigate(action)
+            val navControllers = requireActivity().findNavController(R.id.nav_host_fragment)
+            navControllers.navigate(R.id.faqFragment)
         }
         binding.frameLayout2.setOnClickListener {
-            val action = SupportFragmentDirections.actionSupportFragmentToChatFragment()
-            navController.navigate(action)
+            val navControllers = requireActivity().findNavController(R.id.nav_host_fragment)
+            navControllers.navigate(R.id.chatFragment)
         }
         binding.imageView.setOnClickListener {
             val action = SupportFragmentDirections.actionSupportFragmentToProfileFragment()
             navController.navigate(action)
+        }
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
+            )
+            insets
         }
     }
 }

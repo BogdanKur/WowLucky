@@ -10,7 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.marginBottom
+import androidx.core.view.updatePadding
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.BlurUtils.applyBlur
 import com.example.wowlucky.BlurUtils.removeBlur
@@ -33,8 +36,6 @@ class ChatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentChatBinding.bind(view)
         val navController = findNavController()
-        val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNavigationView.visibility = View.GONE
         val adapter = MessageAdapter()
         binding.rvChats.adapter = adapter
         val messages = listOf(
@@ -46,8 +47,7 @@ class ChatFragment : Fragment() {
 
         adapter.submitList(messages)
         binding.imageView.setOnClickListener {
-            val action = ChatFragmentDirections.actionChatFragmentToSupportFragment()
-            navController.navigate(action)
+            findNavController().popBackStack()
         }
         binding.btnPlus.setOnClickListener {
             applyBlur(requireContext(), binding.rvChats)
@@ -64,16 +64,15 @@ class ChatFragment : Fragment() {
             removeBlur(binding.llNoMessage)
             binding.linearLayoutSelect.visibility = View.GONE
         }
-        val rootView = requireActivity().window.decorView.findViewById<View>(android.R.id.content)
-        rootView.doOnApplyWindowInsets { view, insets, _ ->
-            val keypadHeight = insets.systemWindowInsetBottom
-            val params = binding.linearLayout2.layoutParams as ViewGroup.MarginLayoutParams
-            if (keypadHeight > 200) {
-                params.bottomMargin = keypadHeight - 30
-            } else {
-                params.bottomMargin = 0
-            }
-            binding.linearLayout2.layoutParams = params
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top,
+                bottom = rect.bottom + if (insets.getInsets(WindowInsetsCompat.Type.ime()).bottom == 0) {
+                    insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+                } else {
+                    insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
+                },
+            )
             insets
         }
     }

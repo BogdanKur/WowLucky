@@ -9,11 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.BlurUtils.applyBlur
 import com.example.wowlucky.BlurUtils.removeBlur
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentGamingTransactionsBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 import com.example.wowlucky.profile.FiltrationWithdrawalFragment
 
 class GamingTransactionsFragment : Fragment(), TransactionInterface {
@@ -40,8 +43,14 @@ class GamingTransactionsFragment : Fragment(), TransactionInterface {
         )
         adapter.submitList(listAdapters)
         binding.imageView.setOnClickListener {
-            val action = GamingTransactionsFragmentDirections.actionGameTransactionsFragmentToGamePageFragment()
+            val action = GamingTransactionsFragmentDirections.actionGameTransactionsFragmentToProfileFragment()
             navController.navigate(action)
+        }
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
+            )
+            insets
         }
     }
 

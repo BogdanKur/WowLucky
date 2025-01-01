@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentNotificationBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 
 class NotificationFragment : Fragment() {
     private var _binding: FragmentNotificationBinding? = null
@@ -37,6 +40,12 @@ class NotificationFragment : Fragment() {
         binding.imageView.setOnClickListener {
             val action = NotificationFragmentDirections.actionNotificationFragmentToGamePageFragment()
             navController.navigate(action)
+        }
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
+            )
+            insets
         }
     }
 }

@@ -10,21 +10,18 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentFaqBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class FaqFragment : Fragment() {
     private var _binding: FragmentFaqBinding? = null
     private val binding get() = _binding!!
-    var isOpen1 = false
-    var isOpen2 = false
-    var isOpen3 = false
-    var isOpen4 = false
-    var isOpen5 = false
-    var lastPos = "null"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,12 +32,6 @@ class FaqFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentFaqBinding.bind(view)
-        val navController = findNavController()
-        val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNavigationView.visibility = View.GONE
-        arguments?.let { bundle->
-            lastPos = bundle.getString("support").toString()
-        }
         val adapter = FaqAdapter()
         binding.rvFaq.adapter = adapter
         val listOfQuestion = listOf(
@@ -54,29 +45,16 @@ class FaqFragment : Fragment() {
             insets
         }
         binding.imageView.setOnClickListener {
-            if(lastPos == "support") {
-                val action = FaqFragmentDirections.actionFaqFragmentToSupportFragment()
-                navController.navigate(action)
-            } else {
-                val action = FaqFragmentDirections.actionFaqFragmentToGamePageFragment()
-                navController.navigate(action)
-            }
+            findNavController().popBackStack()
         }
 
-    }
-
-    fun openQuestionAnswer(button: ImageView, open: LinearLayout, isOpen: Boolean, clQuestion: ConstraintLayout): Boolean {
-        if (!isOpen) {
-            clQuestion.setBackgroundResource(R.drawable.faq_bg1)
-            open.visibility = View.VISIBLE
-            button.setImageResource(R.drawable.down_white)
-            return true
-        } else {
-            clQuestion.setBackgroundResource(R.drawable.faq_bg)
-            open.visibility = View.GONE
-            button.setImageResource(R.drawable.up_white)
-            return false
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
+            )
+            insets
         }
+
     }
 
 }

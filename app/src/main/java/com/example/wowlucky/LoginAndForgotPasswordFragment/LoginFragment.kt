@@ -10,9 +10,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentLoginBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 import com.google.android.material.textfield.TextInputEditText
 
 class LoginFragment : Fragment() {
@@ -30,6 +33,17 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentLoginBinding.bind(view)
         val navController = findNavController()
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top,
+                bottom = rect.bottom + if (insets.getInsets(WindowInsetsCompat.Type.ime()).bottom == 0) {
+                    insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+                } else {
+                    insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
+                },
+            )
+            insets
+        }
         binding.btnPassVisible.setOnClickListener {
             togglePasswordVisibility(binding.btnPassVisible, binding.etPassword)
         }

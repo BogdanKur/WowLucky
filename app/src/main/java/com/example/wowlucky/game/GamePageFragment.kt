@@ -47,14 +47,13 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentGamePageBinding.bind(view)
-        val navController = findNavController()
-        binding.root.doOnApplyWindowInsets{view, insets, rect ->
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
             view.updatePadding(
-                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top,
-                bottom = rect.bottom + insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
             )
             insets
         }
+        val navController = findNavController()
         binding.ivCenter.setOnClickListener { view ->
             //showPopupGun()
             val scaleUpX = ObjectAnimator.ofFloat(view, View.SCALE_X, 1f, 1.1f)
@@ -93,10 +92,6 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
         binding.ivBell.setOnClickListener {
             val action = GamePageFragmentDirections.actionGamePageFragmentToNotificationFragment()
             navController.navigate(action)
-        }
-        if(requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView) != null) {
-            val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-            bottomNavigationView.visibility = View.VISIBLE
         }
 
     }

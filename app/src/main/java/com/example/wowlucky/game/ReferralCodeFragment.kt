@@ -9,9 +9,12 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentReferralCodeBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 import com.google.android.material.textfield.TextInputEditText
 
 class ReferralCodeFragment : Fragment() {
@@ -36,8 +39,14 @@ class ReferralCodeFragment : Fragment() {
             toggleTextViewVisibility(binding.ivBlogger, binding.tvOpinion)
         }
         binding.imageView.setOnClickListener {
-            val action = ReferralCodeFragmentDirections.actionReferralCodeFragmentToGamePageFragment()
+            val action = ReferralCodeFragmentDirections.actionReferralCodeFragmentToProfileFragment()
             navController.navigate(action)
+        }
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
+            )
+            insets
         }
     }
 

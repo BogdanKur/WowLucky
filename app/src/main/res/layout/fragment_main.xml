@@ -14,6 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <androidx.fragment.app.FragmentContainerView
+            android:fitsSystemWindows="true"
             android:layout_gravity="top"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,15 +22,52 @@
             android:id="@+id/nav_host_fragment1"
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph1"/>
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:theme="@style/Theme.WowLucky1"
-                android:layout_gravity="bottom"
-                android:id="@+id/bottomNavigationView"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_90dp"
-                app:menu="@menu/menu_bottom_navigation"
-                app:labelVisibilityMode="unlabeled"
-                app:itemIconTint="@drawable/bottom_nav_icon_selector"
-                android:background="@drawable/bottom_navigation_bg"/>
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/bottom_navigation_bg"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:id="@+id/llHome"
+                android:background="@drawable/home_choose"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_width="@dimen/_84dp"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/llChat"
+                android:background="@drawable/chat_white"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_width="@dimen/_84dp"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/llWallet"
+                android:background="@drawable/wallet_white"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_width="@dimen/_84dp"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/llProfile"
+                android:background="@drawable/profile_white"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_width="@dimen/_84dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
     </FrameLayout>
 </FrameLayout>

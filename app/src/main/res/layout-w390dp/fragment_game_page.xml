@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/game_page_1"
+    android:padding="@dimen/_16dp"
+    android:id="@+id/alls"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <ImageView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/more_horizontal"
+        android:layout_width="@dimen/_34dp"
+        android:layout_height="@dimen/_34dp"
+        tools:ignore="MissingConstraints" />
+    <ImageView
+        android:id="@+id/ivBell"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bell"
+        android:layout_width="@dimen/_34dp"
+        android:layout_height="@dimen/_34dp"
+        tools:ignore="MissingConstraints" />
+    <ImageView
+        android:layout_marginEnd="@dimen/_18dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ivBell"
+        android:background="@drawable/globe"
+        android:layout_width="@dimen/_34dp"
+        android:layout_height="@dimen/_34dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvTotalGame"
+        android:textColor="#F8FAFF"
+        android:layout_marginTop="@dimen/_16dp"
+        android:textSize="@dimen/_16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_game_pot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/llFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTotalGame"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:layout_gravity="center"
+            android:src="@drawable/loot_icon"
+            android:layout_width="@dimen/_30dp"
+            android:layout_height="@dimen/_29dp"/>
+        <TextView
+            android:layout_marginStart="@dimen/_8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.000.000"
+            android:textSize="@dimen/_32sp"
+            android:textColor="#F8FAFF"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_26dp"
+        android:text="@string/personal_balanc"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llFirst"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_26dp"
+        android:text="@string/collected_items"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llFirst"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:layout_marginTop="@dimen/_2dp"
+        android:id="@+id/ivCoin"
+        android:layout_width="@dimen/_20dp"
+        android:layout_height="@dimen/_20dp"
+        android:src="@drawable/group_coin_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPersonal"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tvBalance"
+        android:gravity="top"
+        android:textSize="@dimen/_18sp"
+        android:textColor="#F8FAFF"
+        android:text="100.000"
+        app:layout_constraintStart_toEndOf="@id/ivCoin"
+        app:layout_constraintTop_toBottomOf="@id/tvPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <ImageView
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_2dp"
+        android:id="@+id/ivSettings"
+        android:layout_width="@dimen/_20dp"
+        android:layout_height="@dimen/_20dp"
+        android:src="@drawable/settings"
+        app:layout_constraintStart_toEndOf="@id/tvBalance"
+        app:layout_constraintTop_toBottomOf="@id/tvPersonal"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:layout_marginEnd="@dimen/_16dp"
+        android:id="@+id/tvItems"
+        android:gravity="top"
+        android:textSize="@dimen/_18sp"
+        android:textColor="#F8FAFF"
+        android:text="4/10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <ImageView
+        android:layout_marginEnd="@dimen/_4dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:id="@+id/ivUntilted"
+        android:layout_width="@dimen/_39dp"
+        android:layout_height="@dimen/_16dp"
+        android:src="@drawable/untilted"
+        app:layout_constraintEnd_toStartOf="@id/tvItems"
+        app:layout_constraintTop_toBottomOf="@id/tvPersonal"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:layout_marginBottom="@dimen/_35dp"
+        android:id="@+id/ivCenter"
+        android:layout_width="@dimen/_390dp"
+        android:layout_height="@dimen/_390dp"
+        android:background="@drawable/center_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints" />
+    <com.example.wowlucky.CircularProgressBar
+        android:layout_marginBottom="@dimen/_35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/circularProgressBar"
+        android:layout_width="@dimen/_394dp"
+        android:layout_height="@dimen/_394dp"
+        android:layout_gravity="center"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tvGameStart"
+        android:layout_marginTop="@dimen/_60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivCenter"
+        android:text="@string/game_start"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_24sp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tvTime"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvGameStart"
+        android:text="07:25:17"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_33sp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tvGaugeFill"
+        android:layout_marginTop="@dimen/_15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTime"
+        android:text="@string/gauge_fill"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_18sp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/tvTimeGaugeFill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvGaugeFill"
+        android:text="04:25:17"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_29sp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tvProgress"
+        android:layout_marginTop="@dimen/_15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTimeGaugeFill"
+        android:text="@string/progress"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_18sp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvProgress"
+        android:text="1/3"
+        android:textColor="#F8FAFF"
+        android:textSize="@dimen/_27sp"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_marginBottom="@dimen/_100dp"
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,6 @@ class SplashScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSplashScreenBinding.bind(view)
-        requireActivity().window.navigationBarColor = ContextCompat.getColor(requireContext(), R.color.black)
         val navController = findNavController()
         Handler(Looper.getMainLooper()).postDelayed({
             val action = SplashScreenFragmentDirections.actionSplashScreenFragmentToWelcomeFragment()

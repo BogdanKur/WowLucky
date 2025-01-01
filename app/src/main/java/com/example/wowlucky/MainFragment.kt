@@ -11,6 +11,10 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -33,7 +37,39 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.bind(view)
         val navController = (childFragmentManager.findFragmentById(R.id.nav_host_fragment1) as NavHostFragment).navController
 
-        binding.bottomNavigationView.setupWithNavController(navController)
-        binding.bottomNavigationView.addTopAndBottomPaddings()
+        binding.llHome.setOnClickListener {
+            binding.llHome.setBackgroundResource(R.drawable.home_choose)
+            binding.llChat.setBackgroundResource(R.drawable.chat_white)
+            binding.llWallet.setBackgroundResource(R.drawable.wallet_white)
+            binding.llProfile.setBackgroundResource(R.drawable.profile_white)
+            navController.navigate(R.id.gamePageFragment)
+        }
+        binding.llChat.setOnClickListener {
+            binding.llHome.setBackgroundResource(R.drawable.home_white)
+            binding.llChat.setBackgroundResource(R.drawable.chat_choose)
+            binding.llWallet.setBackgroundResource(R.drawable.wallet_white)
+            binding.llProfile.setBackgroundResource(R.drawable.profile_white)
+            navController.navigate(R.id.supportFragment)
+        }
+        binding.llWallet.setOnClickListener {
+            binding.llHome.setBackgroundResource(R.drawable.home_white)
+            binding.llChat.setBackgroundResource(R.drawable.chat_white)
+            binding.llWallet.setBackgroundResource(R.drawable.wallet_choose)
+            binding.llProfile.setBackgroundResource(R.drawable.profile_white)
+            navController.navigate(R.id.gamingTransactionsFragment)
+        }
+        binding.llProfile.setOnClickListener {
+            binding.llHome.setBackgroundResource(R.drawable.home_white)
+            binding.llChat.setBackgroundResource(R.drawable.chat_white)
+            binding.llWallet.setBackgroundResource(R.drawable.wallet_white)
+            binding.llProfile.setBackgroundResource(R.drawable.profile_choose)
+            navController.navigate(R.id.profileFragment)
+        }
+        binding.bottomNavigationView.doOnApplyWindowInsets{ view, insets, rect ->
+            view.updatePadding(
+                bottom = rect.bottom + insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            )
+            insets
+        }
     }
 }
