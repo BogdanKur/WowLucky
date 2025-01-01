@@ -17,6 +17,8 @@ import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -25,6 +27,7 @@ import com.example.wowlucky.CircularProgressBar
 import com.example.wowlucky.R
 import com.example.wowlucky.addTopAndBottomPaddings
 import com.example.wowlucky.databinding.FragmentGamePageBinding
+import com.example.wowlucky.doOnApplyWindowInsets
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
@@ -32,10 +35,7 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
     private var _binding: FragmentGamePageBinding? = null
     private val binding get() = _binding!!
     private lateinit var newsAdapter: NewsAdapter
-    private var totalHours = 0
-    private val hoursToCollect = 30
     private var remaining = 3
-    private var current = 89
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +48,13 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentGamePageBinding.bind(view)
         val navController = findNavController()
+        binding.root.doOnApplyWindowInsets{view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top,
+                bottom = rect.bottom + insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            )
+            insets
+        }
         binding.ivCenter.setOnClickListener { view ->
             //showPopupGun()
             val scaleUpX = ObjectAnimator.ofFloat(view, View.SCALE_X, 1f, 1.1f)
