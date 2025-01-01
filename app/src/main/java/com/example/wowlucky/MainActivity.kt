@@ -24,5 +24,6 @@ class MainActivity : AppCompatActivity() {
         val window = this.window
         WindowCompat.setDecorFitsSystemWindows(window, false)
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
+
     }
 }

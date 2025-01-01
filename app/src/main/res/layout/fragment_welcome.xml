@@ -43,6 +43,8 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"/>
     <TextView
+        android:textStyle="bold"
+        android:fontFamily="@font/agrandir"
         android:id="@+id/tvNo"
         android:layout_marginTop="@dimen/_10dp"
         android:layout_width="match_parent"
@@ -57,7 +59,6 @@
         tools:ignore="MissingConstraints"/>
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_marginBottom="@dimen/_16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
