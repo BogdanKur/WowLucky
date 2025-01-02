@@ -41,6 +41,7 @@
                 android:textSize="@dimen/_20sp"
                 app:layout_constraintStart_toStartOf="parent" />
             <TextView
+                android:fontFamily="@font/agrandir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="232038"
@@ -71,6 +72,7 @@
                 android:textSize="@dimen/_20sp"
                 app:layout_constraintStart_toStartOf="parent" />
             <TextView
+                android:fontFamily="@font/agrandir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1293"
@@ -101,6 +103,7 @@
                 android:textSize="@dimen/_20sp"
                 app:layout_constraintStart_toStartOf="parent" />
             <TextView
+                android:fontFamily="@font/agrandir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="121300"

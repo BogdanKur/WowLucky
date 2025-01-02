@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:fontFamily="@font/agrandir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#646464"
