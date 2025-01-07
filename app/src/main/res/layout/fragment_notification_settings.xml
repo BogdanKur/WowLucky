@@ -8,7 +8,7 @@
     android:background="@color/black"
     android:padding="@dimen/_16dp"
     tools:ignore="MissingConstraints"
-    tools:context=".profile.NotificationSettingsFragment">
+    tools:context=".screens.profile.NotificationSettingsFragment">
 
     <ImageView
         android:id="@+id/imageView"

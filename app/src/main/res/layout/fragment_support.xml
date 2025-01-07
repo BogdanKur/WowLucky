@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:padding="@dimen/_16dp"
-    tools:context=".support.SupportFragment">
+    tools:context=".screens.support.SupportFragment">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"

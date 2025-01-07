@@ -6,19 +6,19 @@
     app:startDestination="@id/splashScreenFragment">
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.wowlucky.support.ChatFragment"
+        android:name="com.example.wowlucky.screens.support.ChatFragment"
         tools:layout="@layout/fragment_chat">
 
     </fragment>
     <fragment
         android:id="@+id/faqFragment"
-        android:name="com.example.wowlucky.support.FaqFragment"
+        android:name="com.example.wowlucky.screens.support.FaqFragment"
         tools:layout="@layout/fragment_faq">
 
     </fragment>
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.example.wowlucky.onboarding.SplashScreenFragment"
+        android:name="com.example.wowlucky.screens.onboarding.SplashScreenFragment"
         tools:layout="@layout/fragment_splash_screen">
         <action
             android:id="@+id/action_splashScreenFragment_to_welcomeFragment"
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.wowlucky.onboarding.WelcomeFragment"
+        android:name="com.example.wowlucky.screens.onboarding.WelcomeFragment"
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_continueFragment"
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/continueFragment"
-        android:name="com.example.wowlucky.onboarding.ContinueFragment"
+        android:name="com.example.wowlucky.screens.onboarding.ContinueFragment"
         tools:layout="@layout/fragment_continue">
         <action
             android:id="@+id/action_continueFragment_to_registrationActiveFragment"
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrationActiveFragment"
-        android:name="com.example.wowlucky.registrate.RegistrationActiveFragment"
+        android:name="com.example.wowlucky.screens.registrate.RegistrationActiveFragment"
         tools:layout="@layout/fragment_registration">
         <action
             android:id="@+id/action_viewPagerFirstFragment_to_welcomeFragment"
@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrationInactiveFragment"
-        android:name="com.example.wowlucky.registrate.RegistrationInactiveFragment"
+        android:name="com.example.wowlucky.screens.registrate.RegistrationInactiveFragment"
         tools:layout="@layout/fragment_registration_inactive">
         <action
             android:id="@+id/action_registrationInactiveFragment_to_createAccountFragment"
@@ -92,7 +92,7 @@
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
-        android:name="com.example.wowlucky.registrate.CreateAccountFragment"
+        android:name="com.example.wowlucky.screens.registrate.CreateAccountFragment"
         tools:layout="@layout/fragment_create_account">
         <action
             android:id="@+id/action_createAccountFragment_to_RegistrationInactiveFragmentFragment"
@@ -182,7 +182,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.wowlucky.MainFragment"
+        android:name="com.example.wowlucky.game.MainFragment"
         tools:layout="@layout/fragment_main">
 
     </fragment>
@@ -200,34 +200,34 @@
     </fragment>
     <dialog
         android:id="@+id/chooseDialogFragment"
-        android:name="com.example.wowlucky.game.ChooseDialogFragment"
+        android:name="com.example.wowlucky.game.popups.ChooseDialogFragment"
         tools:layout="@layout/fragment_choose_dialog">
     </dialog>
 
     <dialog
         android:id="@+id/winDialogFragment"
-        android:name="com.example.wowlucky.game.WinDialogFragment"
+        android:name="com.example.wowlucky.game.popups.WinDialogFragment"
         tools:layout="@layout/fragment_win_dialog">
     </dialog>
 
     <dialog
         android:id="@+id/loseDialogFragment"
-        android:name="com.example.wowlucky.game.LoseDialogFragment"
+        android:name="com.example.wowlucky.game.popups.LoseDialogFragment"
         tools:layout="@layout/fragment_lose_dialog">
     </dialog>
     <dialog
         android:id="@+id/gunDialogFragment"
-        android:name="com.example.wowlucky.game.GunDialogFragment"
+        android:name="com.example.wowlucky.game.popups.GunDialogFragment"
         tools:layout="@layout/fragment_gun_dialog">
     </dialog>
     <dialog
         android:id="@+id/resultGunDialogFragment"
-        android:name="com.example.wowlucky.game.ResultGunDialogFragment"
+        android:name="com.example.wowlucky.game.popups.ResultGunDialogFragment"
         tools:layout="@layout/fragment_result_gun_dialog">
     </dialog>
     <dialog
         android:id="@+id/oopsDialogFragment"
-        android:name="com.example.wowlucky.game.OopsDialogFragment"
+        android:name="com.example.wowlucky.game.popups.OopsDialogFragment"
         tools:layout="@layout/fragment_oops_dialog">
     </dialog>
 </navigation>

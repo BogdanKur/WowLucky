@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/filtration_bg"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:context=".profile.FiltrationWithdrawalFragment"
+        tools:context=".screens.profile.FiltrationWithdrawalFragment"
         android:padding="@dimen/_16dp"
         tools:ignore="MissingConstraints">
         <ImageView

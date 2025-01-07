@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:padding="@dimen/_16dp"
-    tools:context=".registrate.RegistrationActiveFragment">
+    tools:context=".screens.registrate.RegistrationActiveFragment">
 
     <ImageView
         android:id="@+id/ivLoot"

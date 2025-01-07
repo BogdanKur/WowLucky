@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/popup_bg"
-        android:padding="@dimen/_10dp"
+        android:padding="@dimen/_16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +32,7 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
+            android:layout_marginTop="@dimen/_13dp"
             android:id="@+id/tvGun91"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

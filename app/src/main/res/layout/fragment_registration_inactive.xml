@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@color/black"
         android:padding="@dimen/_16dp"
-        tools:context=".registrate.RegistrationInactiveFragment">
+        tools:context=".screens.registrate.RegistrationInactiveFragment">
 
         <ImageView
             android:id="@+id/ivLoot"

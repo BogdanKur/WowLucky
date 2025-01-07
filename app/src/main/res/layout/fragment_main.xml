@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/transparent"
     android:orientation="vertical"
-    tools:context=".MainFragment">
+    tools:context=".game.MainFragment">
     <FrameLayout
         android:visibility="visible"
         android:layout_width="match_parent"
@@ -30,9 +30,11 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:background="@drawable/bottom_navigation_bg"
-            android:padding="8dp">
+            android:paddingHorizontal="@dimen/_18dp"
+            android:paddingVertical="@dimen/_16dp">
 
             <LinearLayout
+                android:layout_marginEnd="@dimen/_6dp"
                 android:id="@+id/llHome"
                 android:background="@drawable/home_choose"
                 android:orientation="vertical"
@@ -42,6 +44,7 @@
                 android:layout_height="wrap_content"/>
 
             <LinearLayout
+                android:layout_marginEnd="@dimen/_6dp"
                 android:id="@+id/llChat"
                 android:background="@drawable/chat_white"
                 android:orientation="vertical"
@@ -51,6 +54,7 @@
                 android:layout_height="wrap_content"/>
 
             <LinearLayout
+                android:layout_marginEnd="@dimen/_6dp"
                 android:id="@+id/llWallet"
                 android:background="@drawable/wallet_white"
                 android:orientation="vertical"

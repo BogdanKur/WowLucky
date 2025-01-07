@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/first"
     android:padding="@dimen/_16dp"
-    tools:context=".onboarding.WelcomeFragment">
+    tools:context=".screens.onboarding.WelcomeFragment">
 
     <ImageView
         android:id="@+id/ivLoot"

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        tools:context=".profile.MyProfileFragment"
+        tools:context=".screens.profile.MyProfileFragment"
         android:padding="@dimen/_15dp"
         tools:ignore="MissingConstraints">
         <ImageView

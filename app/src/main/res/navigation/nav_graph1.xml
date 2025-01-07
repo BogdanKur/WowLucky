@@ -116,7 +116,7 @@
     </fragment>
     <fragment
         android:id="@+id/supportFragment"
-        android:name="com.example.wowlucky.support.SupportFragment"
+        android:name="com.example.wowlucky.screens.support.SupportFragment"
         tools:layout="@layout/fragment_support">
         <action
             android:id="@+id/action_supportFragment_to_profileFragment"
@@ -148,7 +148,7 @@
     </fragment>
     <fragment
         android:id="@+id/withdrawalsFragment"
-        android:name="com.example.wowlucky.profile.WithdrawalsFragment"
+        android:name="com.example.wowlucky.screens.profile.WithdrawalsFragment"
         tools:layout="@layout/fragment_withdrawals">
         <action
             android:id="@+id/action_withdrawalsFragment_to_profileFragment"
@@ -160,7 +160,7 @@
     </fragment>
     <fragment
         android:id="@+id/mediaAndGroupsFragment"
-        android:name="com.example.wowlucky.profile.MediaAndGroupsFragment"
+        android:name="com.example.wowlucky.screens.profile.MediaAndGroupsFragment"
         tools:layout="@layout/fragment_media_and_groups">
         <action
             android:id="@+id/action_mediaFragment_to_profileFragment"
@@ -172,7 +172,7 @@
     </fragment>
     <fragment
         android:id="@+id/notificationSettingsFragment"
-        android:name="com.example.wowlucky.profile.NotificationSettingsFragment"
+        android:name="com.example.wowlucky.screens.profile.NotificationSettingsFragment"
         tools:layout="@layout/fragment_notification_settings">
         <action
             android:id="@+id/action_notificationSettingsFragment_to_profileFragment"
@@ -184,7 +184,7 @@
     </fragment>
     <fragment
         android:id="@+id/myProfileFragment"
-        android:name="com.example.wowlucky.profile.MyProfileFragment"
+        android:name="com.example.wowlucky.screens.profile.MyProfileFragment"
         tools:layout="@layout/fragment_my_profile">
         <action
             android:id="@+id/action_myProfileFragment_to_profileFragment"
@@ -203,7 +203,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.wowlucky.profile.ProfileFragment"
+        android:name="com.example.wowlucky.screens.profile.ProfileFragment"
         tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_referralFragment"
@@ -285,7 +285,7 @@
     </fragment>
     <dialog
         android:id="@+id/balanceType"
-        android:name="com.example.wowlucky.profile.BalanceTypesFragment"
+        android:name="com.example.wowlucky.screens.profile.BalanceTypesFragment"
         tools:layout="@layout/fragment_balance_types">
         <action
             android:id="@+id/action_balanceTypeFragment_to_profileFragment"
@@ -297,7 +297,7 @@
     </dialog>
     <dialog
         android:id="@+id/filtrationFragment"
-        android:name="com.example.wowlucky.profile.FiltrationWithdrawalFragment"
+        android:name="com.example.wowlucky.screens.profile.FiltrationWithdrawalFragment"
         tools:layout="@layout/fragment_filtration_withdrawal">
         <action
             android:id="@+id/action_filtrationFragment_to_transactionsFragment"

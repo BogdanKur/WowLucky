@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".profile.BalanceTypesFragment">
+    tools:context=".screens.profile.BalanceTypesFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_constraintBottom_toBottomOf="parent"

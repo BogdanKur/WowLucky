@@ -1,4 +1,4 @@
-package com.example.wowlucky
+package com.example.wowlucky.screens.utils
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.example.wowlucky.R
 
 class CircularProgressBar(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
@@ -87,4 +88,3 @@ class CircularProgressBar(context: Context, attrs: AttributeSet) : View(context,
         }
     }
 }
-

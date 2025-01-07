@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/_16dp"
-    tools:context=".registrate.CreateAccountFragment">
+    tools:context=".screens.registrate.CreateAccountFragment">
 
     <ImageView
         android:id="@+id/imageView"
