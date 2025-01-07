@@ -16,20 +16,19 @@ import com.example.wowlucky.databinding.FragmentProfileBinding
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class ProfileFragment : Fragment() {
-    private var _binding: FragmentProfileBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentProfileBinding
     private var isImageBackgroundChanged = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentProfileBinding.bind(view)
         removeBlur(binding.root)
         val navController = findNavController()
         binding.root.doOnApplyWindowInsets { view, insets, rect ->

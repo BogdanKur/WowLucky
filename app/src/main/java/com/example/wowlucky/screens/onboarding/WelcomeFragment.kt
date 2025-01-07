@@ -13,19 +13,18 @@ import com.example.wowlucky.databinding.FragmentWelcomeBinding
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class WelcomeFragment : Fragment() {
-    private var _binding: FragmentWelcomeBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentWelcomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_welcome, container, false)
+        binding = FragmentWelcomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentWelcomeBinding.bind(view)
         val navController = findNavController()
         binding.btnGetStarted.setOnClickListener {
             val action = WelcomeFragmentDirections.actionWelcomeFragmentToContinueFragment()

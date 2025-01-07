@@ -14,14 +14,14 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
 class ResultGunDialogFragment : BottomSheetDialogFragment() {
-    private var _binding: FragmentResultGunDialogBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentResultGunDialogBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_result_gun_dialog, container, false)
+        binding = FragmentResultGunDialogBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     private fun sendBlurAction(type: String) {
@@ -33,7 +33,6 @@ class ResultGunDialogFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentResultGunDialogBinding.bind(view)
         sendBlurAction(MainFragment.BLUR_APPLY)
         binding.btnTakePicture9.setOnClickListener {
             findNavController().popBackStack()

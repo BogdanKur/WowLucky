@@ -15,19 +15,17 @@ import com.example.wowlucky.screens.game.adapter.NotificationAdapter
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class NotificationFragment : Fragment() {
-    private var _binding: FragmentNotificationBinding? = null
-    private val binding get() = _binding!!
-
+    private lateinit var binding: FragmentNotificationBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_notification, container, false)
+        binding = FragmentNotificationBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentNotificationBinding.bind(view)
         val navController = findNavController()
         val adapter = NotificationAdapter()
         binding.rvNotification.adapter = adapter

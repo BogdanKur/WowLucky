@@ -13,26 +13,25 @@ import android.widget.ImageButton
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
-import com.example.wowlucky.LoginAndForgotPasswordFragment.LoginFragmentDirections
+import com.example.wowlucky.screens.LoginAndForgotPasswordFragment.LoginFragmentDirections
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentLoginBinding
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 import com.google.android.material.textfield.TextInputEditText
 
 class LoginFragment : Fragment() {
-    private var _binding: FragmentLoginBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentLoginBinding
     private var isPasswordVisible = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentLoginBinding.bind(view)
         val navController = findNavController()
         binding.root.doOnApplyWindowInsets { view, insets, rect ->
             val imeVisible = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom > 0

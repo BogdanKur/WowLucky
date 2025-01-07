@@ -15,18 +15,17 @@ import com.example.wowlucky.databinding.FragmentReferralCodeBinding
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class ReferralCodeFragment : Fragment() {
-    private var _binding: FragmentReferralCodeBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentReferralCodeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_referral_code, container, false)
+        binding = FragmentReferralCodeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentReferralCodeBinding.bind(view)
         val navController = findNavController()
         binding.floatButton.setOnClickListener{
             val action = ReferralCodeFragmentDirections.actionReferralCodeFragmentToFaqFragment()

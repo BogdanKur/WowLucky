@@ -19,20 +19,19 @@ import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 import com.google.android.material.textfield.TextInputEditText
 
 class CreateAccountFragment : Fragment() {
-    private var _binding: FragmentCreateAccountBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentCreateAccountBinding
     private var isPasswordVisible = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_create_account, container, false)
+        binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentCreateAccountBinding.bind(view)
         val navController = findNavController()
         binding.btnPassVisible.setOnClickListener {
             togglePasswordVisibility(binding.btnPassVisible, binding.etPassword)

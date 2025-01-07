@@ -15,15 +15,14 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentGamePageBinding
-import com.example.wowlucky.game.GamePageFragmentDirections
+import com.example.wowlucky.screens.game.GamePageFragmentDirections
 import com.example.wowlucky.screens.game.adapter.News
 import com.example.wowlucky.screens.game.adapter.NewsAdapter
 import com.example.wowlucky.screens.game.adapter.NewsViewPagerAdapterClickItem
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
-    private var _binding: FragmentGamePageBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentGamePageBinding
     private lateinit var newsAdapter: NewsAdapter
     private var remaining = 3
 
@@ -31,12 +30,12 @@ class GamePageFragment : Fragment(), NewsViewPagerAdapterClickItem {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_game_page, container, false)
+        binding = FragmentGamePageBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentGamePageBinding.bind(view)
         binding.root.doOnApplyWindowInsets { view, insets, rect ->
             view.updatePadding(
                 top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top

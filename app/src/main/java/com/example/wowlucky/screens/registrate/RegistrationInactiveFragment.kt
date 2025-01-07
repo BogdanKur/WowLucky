@@ -14,19 +14,18 @@ import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentRegistrationInactiveBinding
 
 class RegistrationInactiveFragment : Fragment() {
-    private var _binding: FragmentRegistrationInactiveBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentRegistrationInactiveBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_registration_inactive, container, false)
+        binding = FragmentRegistrationInactiveBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentRegistrationInactiveBinding.bind(view)
         val navController = findNavController()
         val text = getString(R.string.have_an_account)
         val spannableText = SpannableString(text)

@@ -17,18 +17,17 @@ import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 
 class FaqFragment : Fragment() {
-    private var _binding: FragmentFaqBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentFaqBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_faq, container, false)
+        binding = FragmentFaqBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentFaqBinding.bind(view)
         val adapter = FaqAdapter()
         binding.rvFaq.adapter = adapter
         val listOfQuestion = listOf(

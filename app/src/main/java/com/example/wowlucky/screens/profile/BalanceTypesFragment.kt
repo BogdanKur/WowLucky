@@ -10,19 +10,18 @@ import com.example.wowlucky.databinding.FragmentBalanceTypesBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BalanceTypesFragment : BottomSheetDialogFragment() {
-    private var _binding: FragmentBalanceTypesBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentBalanceTypesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_balance_types, container, false)
+        binding = FragmentBalanceTypesBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentBalanceTypesBinding.bind(view)
         binding.btnOk.setOnClickListener {
             val action = BalanceTypesFragmentDirections.actionBalanceTypeFragmentToProfileFragment()
             findNavController().navigate(action)

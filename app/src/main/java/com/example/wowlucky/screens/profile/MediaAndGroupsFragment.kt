@@ -13,19 +13,18 @@ import com.example.wowlucky.databinding.FragmentMediaAndGroupsBinding
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class MediaAndGroupsFragment : Fragment() {
-    private var _binding: FragmentMediaAndGroupsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentMediaAndGroupsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_media_and_groups, container, false)
+        binding = FragmentMediaAndGroupsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentMediaAndGroupsBinding.bind(view)
         val navController = findNavController()
         binding.root.doOnApplyWindowInsets { view, insets, rect ->
             view.updatePadding(

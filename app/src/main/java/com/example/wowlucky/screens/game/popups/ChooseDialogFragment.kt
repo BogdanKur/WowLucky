@@ -16,14 +16,14 @@ import com.example.wowlucky.databinding.FragmentChooseDialogBinding
 import com.example.wowlucky.screens.game.MainFragment
 
 class ChooseDialogFragment : DialogFragment() {
-    private var _binding: FragmentChooseDialogBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentChooseDialogBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_choose_dialog, container, false)
+        binding = FragmentChooseDialogBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     private fun sendBlurAction(type: String) {
@@ -35,7 +35,6 @@ class ChooseDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentChooseDialogBinding.bind(view)
         sendBlurAction(MainFragment.BLUR_APPLY)
         val window = dialog?.window
         if (window != null) {

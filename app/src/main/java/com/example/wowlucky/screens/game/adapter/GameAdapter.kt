@@ -1,4 +1,4 @@
-package com.example.wowlucky.screens.game
+package com.example.wowlucky.screens.game.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -11,7 +11,9 @@ import com.example.wowlucky.R
 import com.example.wowlucky.databinding.GameItemBinding
 import com.example.wowlucky.screens.game.interfaces.GameItemClick
 
-class GameAdapter(private val listener: GameItemClick) : ListAdapter<GameItem, GameAdapter.GameViewHolder>(GameDiffCallback()) {
+class GameAdapter(private val listener: GameItemClick) : ListAdapter<GameItem, GameAdapter.GameViewHolder>(
+    GameDiffCallback()
+) {
     private var selectedPosition: Int = -1
     private var isTextVisible = false
 

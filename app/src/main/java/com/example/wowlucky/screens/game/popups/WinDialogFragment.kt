@@ -16,14 +16,14 @@ import com.example.wowlucky.databinding.FragmentWinDialogBinding
 import com.example.wowlucky.screens.game.MainFragment
 
 class WinDialogFragment : DialogFragment() {
-    private var _binding: FragmentWinDialogBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentWinDialogBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_win_dialog, container, false)
+        binding = FragmentWinDialogBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     private fun sendBlurAction(type: String) {
@@ -35,7 +35,6 @@ class WinDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentWinDialogBinding.bind(view)
         sendBlurAction(MainFragment.BLUR_APPLY)
         val window = dialog?.window
         if (window != null) {

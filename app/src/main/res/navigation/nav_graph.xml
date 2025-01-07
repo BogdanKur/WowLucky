@@ -111,7 +111,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.wowlucky.LoginAndForgotPasswordFragment.LoginFragment"
+        android:name="com.example.wowlucky.screens.LoginAndForgotPasswordFragment.LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_resetPasswordFragment"
@@ -137,7 +137,7 @@
     </fragment>
     <fragment
         android:id="@+id/resetPasswordFragment"
-        android:name="com.example.wowlucky.LoginAndForgotPasswordFragment.ResetPasswordFragment"
+        android:name="com.example.wowlucky.screens.LoginAndForgotPasswordFragment.ResetPasswordFragment"
         tools:layout="@layout/fragment_reset_password">
         <action
             android:id="@+id/action_resetPasswordFragment_to_enterConfirmationCodeFragment"
@@ -156,7 +156,7 @@
     </fragment>
     <fragment
         android:id="@+id/enterConfirmationCodeFragment"
-        android:name="com.example.wowlucky.LoginAndForgotPasswordFragment.EnterConfirmationCodeFragment"
+        android:name="com.example.wowlucky.screens.LoginAndForgotPasswordFragment.EnterConfirmationCodeFragment"
         tools:layout="@layout/fragment_enter_confimation_code">
         <action
             android:id="@+id/action_enterConfirmationCodeFragment_to_loginFragment"
@@ -182,13 +182,13 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.wowlucky.game.MainFragment"
+        android:name="com.example.wowlucky.screens.game.MainFragment"
         tools:layout="@layout/fragment_main">
 
     </fragment>
     <fragment
         android:id="@+id/continueToLoginFragment"
-        android:name="com.example.wowlucky.LoginAndForgotPasswordFragment.ContinueToLoginFragment"
+        android:name="com.example.wowlucky.screens.LoginAndForgotPasswordFragment.ContinueToLoginFragment"
         tools:layout="@layout/fragment_continue_to_login">
         <action
             android:id="@+id/action_continueToLoginFragment_to_enterConfirmationCodeFragment"
@@ -200,34 +200,34 @@
     </fragment>
     <dialog
         android:id="@+id/chooseDialogFragment"
-        android:name="com.example.wowlucky.game.popups.ChooseDialogFragment"
+        android:name="com.example.wowlucky.screens.game.popups.ChooseDialogFragment"
         tools:layout="@layout/fragment_choose_dialog">
     </dialog>
 
     <dialog
         android:id="@+id/winDialogFragment"
-        android:name="com.example.wowlucky.game.popups.WinDialogFragment"
+        android:name="com.example.wowlucky.screens.game.popups.WinDialogFragment"
         tools:layout="@layout/fragment_win_dialog">
     </dialog>
 
     <dialog
         android:id="@+id/loseDialogFragment"
-        android:name="com.example.wowlucky.game.popups.LoseDialogFragment"
+        android:name="com.example.wowlucky.screens.game.popups.LoseDialogFragment"
         tools:layout="@layout/fragment_lose_dialog">
     </dialog>
     <dialog
         android:id="@+id/gunDialogFragment"
-        android:name="com.example.wowlucky.game.popups.GunDialogFragment"
+        android:name="com.example.wowlucky.screens.game.popups.GunDialogFragment"
         tools:layout="@layout/fragment_gun_dialog">
     </dialog>
     <dialog
         android:id="@+id/resultGunDialogFragment"
-        android:name="com.example.wowlucky.game.popups.ResultGunDialogFragment"
+        android:name="com.example.wowlucky.screens.game.popups.ResultGunDialogFragment"
         tools:layout="@layout/fragment_result_gun_dialog">
     </dialog>
     <dialog
         android:id="@+id/oopsDialogFragment"
-        android:name="com.example.wowlucky.game.popups.OopsDialogFragment"
+        android:name="com.example.wowlucky.screens.game.popups.OopsDialogFragment"
         tools:layout="@layout/fragment_oops_dialog">
     </dialog>
 </navigation>

@@ -17,19 +17,18 @@ import com.example.wowlucky.screens.support.adapter.Messages
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class ChatFragment : Fragment() {
-    private var _binding: FragmentChatBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentChatBinding
     private var isClick = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_chat, container, false)
+        binding = FragmentChatBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentChatBinding.bind(view)
         val adapter = MessageAdapter()
         binding.rvChats.adapter = adapter
         val messages = listOf(

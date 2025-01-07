@@ -14,23 +14,24 @@ import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.screens.utils.BlurUtils.removeBlur
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentGameBinding
+import com.example.wowlucky.screens.game.adapter.GameAdapter
+import com.example.wowlucky.screens.game.adapter.GameItem
 import com.example.wowlucky.screens.game.interfaces.GameItemClick
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class GameFragment : Fragment(), GameItemClick {
-    private var _binding: FragmentGameBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentGameBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_game, container, false)
+        binding = FragmentGameBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentGameBinding.bind(view)
         removeBlur(binding.root)
         val navController = findNavController()
         val gameItems = listOf(

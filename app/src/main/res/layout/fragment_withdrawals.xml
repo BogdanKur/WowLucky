@@ -187,7 +187,7 @@
             android:gravity="center"
             android:id="@+id/tvAlternative"
             android:textColor="#F8FAFF"
-            android:layout_marginTop="@dimen/_34dp"
+            android:layout_marginTop="@dimen/_21dp"
             android:text="@string/for_alternative_withdrawal_methods_please_contact_support"
             app:layout_constraintTop_toBottomOf="@id/constraint3"
             android:layout_width="match_parent"

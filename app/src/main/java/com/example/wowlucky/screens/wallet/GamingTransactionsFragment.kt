@@ -16,22 +16,21 @@ import com.example.wowlucky.screens.wallet.adapter.TransactionInterface
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 import com.example.wowlucky.screens.wallet.adapter.GamingTransactionsAdapter
 import com.example.wowlucky.screens.wallet.adapter.Transaction
-import com.example.wowlucky.wallet.GamingTransactionsFragmentDirections
+import com.example.wowlucky.screens.wallet.GamingTransactionsFragmentDirections
 
 class GamingTransactionsFragment : Fragment(), TransactionInterface {
-    private var _binding: FragmentGamingTransactionsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentGamingTransactionsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_gaming_transactions, container, false)
+        binding = FragmentGamingTransactionsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentGamingTransactionsBinding.bind(view)
         removeBlur(binding.root)
         val navController = findNavController()
         val adapter = GamingTransactionsAdapter(this)

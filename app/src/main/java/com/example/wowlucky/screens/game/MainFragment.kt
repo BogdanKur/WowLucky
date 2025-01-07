@@ -20,8 +20,7 @@ import com.example.wowlucky.databinding.FragmentMainBinding
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class MainFragment : Fragment() {
-    private var _binding: FragmentMainBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentMainBinding
 
     companion object {
         const val ACTION_BLUR = "com.example.ACTION_BLUR"
@@ -43,12 +42,12 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentMainBinding.bind(view)
         val navController = (childFragmentManager.findFragmentById(R.id.nav_host_fragment1) as NavHostFragment).navController
         LocalBroadcastManager.getInstance(requireContext()).registerReceiver(
             blurReceiver,

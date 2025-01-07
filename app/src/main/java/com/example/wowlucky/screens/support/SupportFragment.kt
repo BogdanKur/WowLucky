@@ -14,19 +14,18 @@ import com.example.wowlucky.databinding.FragmentSupportBinding
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class SupportFragment : Fragment() {
-    private var _binding: FragmentSupportBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentSupportBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_support, container, false)
+        binding = FragmentSupportBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentSupportBinding.bind(view)
         val navController = findNavController()
         binding.frameLayout1.setOnClickListener {
             val navControllers = requireActivity().findNavController(R.id.nav_host_fragment)

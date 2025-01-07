@@ -13,7 +13,7 @@ import android.widget.ImageButton
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
-import com.example.wowlucky.LoginAndForgotPasswordFragment.EnterConfirmationCodeFragmentDirections
+import com.example.wowlucky.screens.LoginAndForgotPasswordFragment.EnterConfirmationCodeFragmentDirections
 import com.example.wowlucky.screens.utils.BlurUtils.applyBlur
 import com.example.wowlucky.screens.utils.BlurUtils.removeBlur
 import com.example.wowlucky.R
@@ -22,19 +22,18 @@ import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 import com.google.android.material.textfield.TextInputEditText
 
 class EnterConfirmationCodeFragment : Fragment() {
-    private var _binding: FragmentEnterConfimationCodeBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentEnterConfimationCodeBinding
     private var isPasswordVisible = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_enter_confimation_code, container, false)
+        binding = FragmentEnterConfimationCodeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentEnterConfimationCodeBinding.bind(view)
         removeBlur(binding.root)
         val navController = findNavController()
         binding.root.doOnApplyWindowInsets { view, insets, rect ->

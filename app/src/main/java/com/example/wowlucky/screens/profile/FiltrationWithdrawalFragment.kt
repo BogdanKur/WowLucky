@@ -10,8 +10,7 @@ import com.example.wowlucky.databinding.FragmentFiltrationWithdrawalBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class FiltrationWithdrawalFragment : BottomSheetDialogFragment() {
-    private var _binding: FragmentFiltrationWithdrawalBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentFiltrationWithdrawalBinding
     private var isImageBackgroundChanged = false
     private var isImageBackgroundChangedWin = false
     private var isImageBackgroundChangedLose = false
@@ -19,12 +18,12 @@ class FiltrationWithdrawalFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_filtration_withdrawal, container, false)
+        binding = FragmentFiltrationWithdrawalBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentFiltrationWithdrawalBinding.bind(view)
         binding.btnChooseDate.setOnClickListener {
             if (isImageBackgroundChanged) {
                 binding.imageView11.setBackgroundResource(R.drawable.choose_date)

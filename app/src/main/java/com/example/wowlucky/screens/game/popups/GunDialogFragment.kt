@@ -13,14 +13,14 @@ import com.example.wowlucky.screens.game.MainFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class GunDialogFragment : BottomSheetDialogFragment() {
-    private var _binding: FragmentGunDialogBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentGunDialogBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_gun_dialog, container, false)
+        binding = FragmentGunDialogBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     private fun sendBlurAction(type: String) {
@@ -32,7 +32,6 @@ class GunDialogFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentGunDialogBinding.bind(view)
         sendBlurAction(MainFragment.BLUR_APPLY)
         binding.btnTakePicture1.setOnClickListener {
             findNavController().popBackStack()

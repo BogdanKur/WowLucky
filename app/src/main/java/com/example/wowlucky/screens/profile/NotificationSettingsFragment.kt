@@ -13,19 +13,18 @@ import com.example.wowlucky.databinding.FragmentNotificationSettingsBinding
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class NotificationSettingsFragment : Fragment() {
-    private var _binding: FragmentNotificationSettingsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentNotificationSettingsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_notification_settings, container, false)
+        binding = FragmentNotificationSettingsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentNotificationSettingsBinding.bind(view)
         val navController = findNavController()
         binding.root.doOnApplyWindowInsets { view, insets, rect ->
             view.updatePadding(

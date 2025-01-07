@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/gamePageFragment"
-        android:name="com.example.wowlucky.game.GamePageFragment"
+        android:name="com.example.wowlucky.screens.game.GamePageFragment"
         tools:layout="@layout/fragment_game_page">
         <action
             android:id="@+id/action_gamePageFragment_to_gameFragment"
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.example.wowlucky.game.GameFragment"
+        android:name="com.example.wowlucky.screens.game.GameFragment"
         tools:layout="@layout/fragment_game">
         <action
             android:id="@+id/action_gameFragment_to_gamePageFragment"
@@ -90,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/enterReferralCodeFragment"
-        android:name="com.example.wowlucky.game.EnterReferralCodeFragment"
+        android:name="com.example.wowlucky.screens.game.EnterReferralCodeFragment"
         tools:layout="@layout/fragment_enter_referral_code">
         <action
             android:id="@+id/action_enterReferralCodeFragment_to_referralCodeFragment"
@@ -129,7 +129,7 @@
 
     <fragment
         android:id="@+id/gamingTransactionsFragment"
-        android:name="com.example.wowlucky.wallet.GamingTransactionsFragment"
+        android:name="com.example.wowlucky.screens.wallet.GamingTransactionsFragment"
         tools:layout="@layout/fragment_gaming_transactions">
         <action
             android:id="@+id/action_gameTransactionsFragment_to_profileFragment"

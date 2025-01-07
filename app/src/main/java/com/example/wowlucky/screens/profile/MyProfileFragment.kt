@@ -13,20 +13,19 @@ import com.example.wowlucky.databinding.FragmentMyProfileBinding
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class MyProfileFragment : Fragment() {
-    private var _binding: FragmentMyProfileBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentMyProfileBinding
     private var isProfile = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_my_profile, container, false)
+        binding = FragmentMyProfileBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentMyProfileBinding.bind(view)
         val navController = findNavController()
         binding.root.doOnApplyWindowInsets { view, insets, rect ->
             view.updatePadding(

@@ -10,18 +10,18 @@ import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentRegistrationBinding
 
 class RegistrationActiveFragment : Fragment() {
-    private var _binding: FragmentRegistrationBinding? = null
+    private lateinit var binding: FragmentRegistrationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_registration, container, false)
+        binding = FragmentRegistrationBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentRegistrationBinding.bind(view)
 
     }
 

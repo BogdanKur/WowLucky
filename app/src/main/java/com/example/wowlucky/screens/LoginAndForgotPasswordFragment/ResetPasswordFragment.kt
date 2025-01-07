@@ -10,25 +10,24 @@ import android.view.ViewGroup
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
-import com.example.wowlucky.LoginAndForgotPasswordFragment.ResetPasswordFragmentDirections
+import com.example.wowlucky.screens.LoginAndForgotPasswordFragment.ResetPasswordFragmentDirections
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentResetPasswordBinding
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class ResetPasswordFragment : Fragment() {
-    private var _binding: FragmentResetPasswordBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentResetPasswordBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_reset_password, container, false)
+        binding = FragmentResetPasswordBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentResetPasswordBinding.bind(view)
         val navController = findNavController()
         binding.root.doOnApplyWindowInsets { view, insets, rect ->
             view.updatePadding(

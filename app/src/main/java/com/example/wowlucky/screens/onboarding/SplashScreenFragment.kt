@@ -12,18 +12,18 @@ import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentSplashScreenBinding
 
 class SplashScreenFragment : Fragment() {
-    private var _binding: FragmentSplashScreenBinding? = null
+    private lateinit var binding: FragmentSplashScreenBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_splash_screen, container, false)
+        binding = FragmentSplashScreenBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentSplashScreenBinding.bind(view)
         val navController = findNavController()
         Handler(Looper.getMainLooper()).postDelayed({
             val action = SplashScreenFragmentDirections.actionSplashScreenFragmentToWelcomeFragment()

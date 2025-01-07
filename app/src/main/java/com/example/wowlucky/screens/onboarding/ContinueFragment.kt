@@ -16,20 +16,19 @@ import com.example.wowlucky.screens.onboarding.adapter.ContinueViewPagerAdapter
 import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class ContinueFragment : Fragment() {
-    private var _binding: FragmentContinueBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentContinueBinding
     private lateinit var adapter: ContinueViewPagerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_continue, container, false)
+        binding = FragmentContinueBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentContinueBinding.bind(view)
         val navController = findNavController()
         binding.root.doOnApplyWindowInsets{view, insets, rect ->
             view.updatePadding(

@@ -15,7 +15,7 @@
         android:id="@+id/popupChoose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_32dp"
+        android:padding="@dimen/_30dp"
         android:background="@drawable/frame_2085660249"
         tools:ignore="MissingConstraints">
 
@@ -108,7 +108,7 @@
             android:id="@+id/clStarHeart92"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15dp"
+            android:layout_marginTop="@dimen/_12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/clLive"
@@ -179,7 +179,7 @@
             android:id="@+id/frameLayout92"
             android:layout_marginTop="@dimen/_10dp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_280dp"
+            android:layout_height="@dimen/_265dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/clStarHeart92"
@@ -227,9 +227,8 @@
         <FrameLayout
             android:id="@+id/frameLayout29"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_50dp"
+            android:layout_height="@dimen/_45dp"
             android:layout_marginTop="@dimen/_10dp"
-            android:layout_marginBottom="@dimen/_15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

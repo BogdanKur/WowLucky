@@ -16,13 +16,13 @@ import com.example.wowlucky.databinding.FragmentLoseDialogBinding
 import com.example.wowlucky.screens.game.MainFragment
 
 class LoseDialogFragment : DialogFragment() {
-    private var _binding: FragmentLoseDialogBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentLoseDialogBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_lose_dialog, container, false)
+        binding = FragmentLoseDialogBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     private fun sendBlurAction(type: String) {
@@ -34,7 +34,6 @@ class LoseDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentLoseDialogBinding.bind(view)
         sendBlurAction(MainFragment.BLUR_APPLY)
         val window = dialog?.window
         if (window != null) {
