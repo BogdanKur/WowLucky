@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
-    android:padding="@dimen/_16dp"
-    tools:context=".LoginAndForgotPasswordFragment.LoginFragment">
+    android:padding="@dimen/_16dp">
 
     <ImageView
         android:id="@+id/imageView"
