@@ -88,4 +88,9 @@ class MainFragment : Fragment() {
             insets
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        LocalBroadcastManager.getInstance(requireContext()).unregisterReceiver(blurReceiver)
+    }
 }

@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentChooseDialogBinding
 import com.example.wowlucky.screens.game.MainFragment
+import com.example.wowlucky.screens.utils.BlurUtils.sendBlurAction
 
 class ChooseDialogFragment : DialogFragment() {
     private lateinit var binding: FragmentChooseDialogBinding
@@ -26,16 +27,11 @@ class ChooseDialogFragment : DialogFragment() {
         return binding.root
     }
 
-    private fun sendBlurAction(type: String) {
-        val intent = Intent(MainFragment.ACTION_BLUR).apply {
-            putExtra(MainFragment.EXTRA_BLUR_TYPE, type)
-        }
-        LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sendBlurAction(MainFragment.BLUR_APPLY)
+        requireContext().sendBlurAction(MainFragment.BLUR_APPLY)
         val window = dialog?.window
         if (window != null) {
             val lp = WindowManager.LayoutParams().apply {
@@ -55,6 +51,6 @@ class ChooseDialogFragment : DialogFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        sendBlurAction(MainFragment.BLUR_REMOVE)
+        requireContext().sendBlurAction(MainFragment.BLUR_REMOVE)
     }
 }

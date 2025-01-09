@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentResultGunDialogBinding
 import com.example.wowlucky.screens.game.MainFragment
+import com.example.wowlucky.screens.utils.BlurUtils.sendBlurAction
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
@@ -24,16 +25,10 @@ class ResultGunDialogFragment : BottomSheetDialogFragment() {
         return binding.root
     }
 
-    private fun sendBlurAction(type: String) {
-        val intent = Intent(MainFragment.ACTION_BLUR).apply {
-            putExtra(MainFragment.EXTRA_BLUR_TYPE, type)
-        }
-        LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sendBlurAction(MainFragment.BLUR_APPLY)
+        requireContext().sendBlurAction(MainFragment.BLUR_APPLY)
         binding.btnTakePicture9.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -41,6 +36,6 @@ class ResultGunDialogFragment : BottomSheetDialogFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        sendBlurAction(MainFragment.BLUR_REMOVE)
+        requireContext().sendBlurAction(MainFragment.BLUR_REMOVE)
     }
 }

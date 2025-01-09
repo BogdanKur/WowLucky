@@ -9,9 +9,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
 import com.example.wowlucky.R
 import com.example.wowlucky.databinding.FragmentRegistrationInactiveBinding
+import com.example.wowlucky.screens.utils.doOnApplyWindowInsets
 
 class RegistrationInactiveFragment : Fragment() {
     private lateinit var binding: FragmentRegistrationInactiveBinding
@@ -26,6 +29,17 @@ class RegistrationInactiveFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.root.doOnApplyWindowInsets { view, insets, rect ->
+            view.updatePadding(
+                top = rect.top + insets.getInsets(WindowInsetsCompat.Type.systemBars()).top,
+                bottom = rect.bottom + if (insets.getInsets(WindowInsetsCompat.Type.ime()).bottom == 0) {
+                    insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+                } else {
+                    insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
+                },
+            )
+            insets
+        }
         val navController = findNavController()
         val text = getString(R.string.have_an_account)
         val spannableText = SpannableString(text)

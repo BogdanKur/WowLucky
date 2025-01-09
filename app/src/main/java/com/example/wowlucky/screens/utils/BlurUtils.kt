@@ -1,6 +1,7 @@
 package com.example.wowlucky.screens.utils
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Build
@@ -12,9 +13,17 @@ import android.renderscript.ScriptIntrinsicBlur
 import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.graphics.drawable.Drawable
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.example.wowlucky.screens.game.MainFragment
 
 object BlurUtils {
 
+    fun Context.sendBlurAction(type: String) {
+        val intent = Intent(MainFragment.ACTION_BLUR).apply {
+            putExtra(MainFragment.EXTRA_BLUR_TYPE, type)
+        }
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
+    }
     fun removeBlur(view: View) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             view.setRenderEffect(null)
