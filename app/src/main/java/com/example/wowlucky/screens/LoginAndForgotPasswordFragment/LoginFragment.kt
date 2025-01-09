@@ -40,7 +40,7 @@ class LoginFragment : Fragment() {
             view.updatePadding(
                 top = rect.top + systemBarsInsets.top,
                 bottom = rect.bottom + if (imeVisible) {
-                    insets.getInsets(WindowInsetsCompat.Type.ime()).bottom-50
+                    insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
                 } else {
                     systemBarsInsets.bottom
                 }
