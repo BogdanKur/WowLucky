@@ -31,7 +31,7 @@
             android:gravity="center"
             android:background="@drawable/bottom_navigation_bg"
             android:paddingHorizontal="@dimen/_18dp"
-            android:paddingVertical="@dimen/_16dp">
+            android:paddingTop="@dimen/_16dp">
 
             <LinearLayout
                 android:layout_marginEnd="@dimen/_6dp"
